@@ -1,0 +1,90 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+nav {
+  max-width: 1128px;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  height: 55px;
+}
+
+.nav-img-container {
+  display: flex;
+  align-items: center;
+  flex: 2;
+}
+.nav-logo {
+  max-width: 150px;
+  max-height: 40px;
+  cursor: pointer;
+}
+.btn-container {
+  display: flex;
+  flex: 4;
+  justify-content: right;
+}
+.leftbtns {
+  display: flex;
+}
+.rightbtns {
+  display: flex;
+}
+
+.icon-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 30px;
+}
+.icon-btn-container > i {
+  font-size: x-large;
+  cursor: pointer;
+  color: rgb(156, 156, 156);
+}
+.icon-btn-container > span {
+  font-size: small;
+  color: rgb(156, 156, 156);
+}
+
+.icon-btn-container:hover > i,
+.icon-btn-container:hover > span {
+  color: rgb(71, 71, 71);
+}
+
+.blank {
+  width: 1px;
+  border-left: 1px solid gray;
+  margin-right: 30px;
+}
+
+.join-btn {
+  margin-right: 30px;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  font-size: large;
+  color: rgb(117, 117, 117);
+}
+.join-btn:hover {
+  border-radius: 40px;
+  background-color: rgb(231, 231, 231);
+  color: rgb(71, 71, 71);
+  cursor: pointer;
+}
+.login-btn {
+  padding: 10px 20px;
+  background: none;
+  border: 1px solid rgb(2, 125, 207);
+  border-radius: 40px;
+  font-size: large;
+  color: rgb(2, 125, 207);
+}
+.login-btn:hover {
+  background-color: rgba(2, 125, 207, 0.2);
+  color: rgb(0, 54, 90);
+  cursor: pointer;
+}

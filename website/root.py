@@ -2,7 +2,9 @@ import os
 from flask import Blueprint, render_template,url_for, jsonify,g, request, redirect, flash, current_app
 import sqlite3
 from flask_login import login_required,current_user,logout_user
+from .APIs.forms import LoginForm
 from .APIs.mongoDB import client
+
 from bson import ObjectId
 
 # from .login import User
@@ -10,9 +12,11 @@ root = Blueprint('root',__name__)
 
 @root.route('/')
 def index():
+    form = LoginForm()
     if current_user.is_authenticated:
         return redirect(url_for("root.home"))
-    return render_template('welcome.html')
+    return render_template('welcome.html',form = form)
+
 def conn_db():
     db = getattr(g,'_database',None)
     if db is None:
@@ -35,6 +39,7 @@ def create_user_table(db):
             username TEXT NOT NULL,
             email TEXT NOT NULL UNIQUE,
             password text NOT NULL,
+            profile_pic_path text,
             fullname text
         )
     ''')

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='style/home.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='style/main-navbar.css')}}"
+    />
+    <script
+      src="https://kit.fontawesome.com/5eabe89611.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Home</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <div class="nav-left">
+          <div class="nav-logo">
+            <img
+              class="nav-logo-img"
+              src="{{url_for('static',filename='assets/LI-In-Bug.png')}}"
+              alt=""
+            />
+          </div>
+          <div class="search-div">
+            <input
+              class="nav-search"
+              type="search"
+              name="search"
+              id=""
+              placeholder="Search"
+            />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+        <div class="nav-right">
+          <div class="nav-btn">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </div>
+          <div class="nav-btn">
+            <i class="fa-solid fa-user-group"></i>
+            <span>My Network</span>
+          </div>
+          <div class="nav-btn">
+            <i class="fa-solid fa-suitcase"></i>
+            <span>Jobs</span>
+          </div>
+          <div class="nav-btn menu">
+            <img
+              class="nav-profile-pic"
+              src="{{current_user.profile_pic}}"
+              alt="could not load"
+            />
+            <span>Me <i class="fa-solid fa-angle-down"></i></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div style="display: none" class="navbar-me-menu">
+      <div class="navbar-me-menu-wrapper">
+        <div class="navbar-me-menu-profile">
+          <div class="navbar-me-menu-profile-img">
+            <img
+              class="navbar-me-menu-profile-pic"
+              src="{{current_user.profile_pic}}"
+              alt=""
+            />
+          </div>
+          <div class="profile-info">
+            <h3>{{current_user.fullname}}</h3>
+          </div>
+        </div>
+        <div class="view-profile">
+          <button class="view-profile-btn">View Profile</button>
+        </div>
+        <div class="account"></div>
+        <div class="logout">
+          <button onclick="location.assign('/logout')">Logout</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const menu = document.querySelector(".menu");
+      const navbarMeMenu = document.querySelector(".navbar-me-menu");
+
+      menu.addEventListener("click", (event) => {
+        // Prevent the click event from propagating to the body click event
+        event.stopPropagation();
+
+        if (navbarMeMenu.style.display === "block") {
+          navbarMeMenu.style.display = "none";
+        } else {
+          navbarMeMenu.style.display = "block";
+        }
+      });
+
+      // Add a click event listener to the document body to close the menu when clicking outside
+      document.body.addEventListener("click", (event) => {
+        if (navbarMeMenu.style.display === "block" && event.target !== menu) {
+          navbarMeMenu.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

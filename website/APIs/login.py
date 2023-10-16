@@ -13,6 +13,7 @@ class User(UserMixin):
         self.email = None
         self.password = None    
         self.authenticated = False
+        self.profile_pic = "https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg"
         self.fullname = None
     def is_active(self):
          return self.is_active()
@@ -43,7 +44,9 @@ def load_user(user_id):
         cur_user.username = user[1]
         cur_user.email = user[2]
         cur_user.password = user[3]
-        cur_user.fullname = user[4]
+        cur_user.profile_pic = user[4]
+        cur_user.fullname = user[5]
+        print(cur_user.profile_pic)
         return cur_user
 
     return None  # Return None if no user is found
@@ -85,3 +88,15 @@ def login_logic(auth_email = None,auth_password = None):
 
     return render_template('login.html', form = form)
  
+
+@login_blueprint.route("/welcome", methods = ['GET','POST'])
+def welcome():
+    if current_user.is_authenticated:
+        print("current_user.is_authenticated")
+        return redirect(url_for('root.home'))
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        print("email,password")
+        return login_logic(email,password)
+    return render_template('welcome.html')

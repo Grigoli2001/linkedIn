@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='style/navbar.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='style/register.css')}}"
+    />
+    <script
+      src="https://kit.fontawesome.com/5eabe89611.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Login</title>
+  </head>
+  <body>
+    <nav>
+      <img
+        style="cursor: pointer"
+        onclick="location.assign('/')"
+        src="{{url_for('static',filename='assets/Li-Logo.png')}}"
+        alt=""
+      />
+    </nav>
+    <div
+      class="register-wrapper"
+      style="text-align: -webkit-center; text-align: -moz-center"
+    >
+      <p class="reg-text" style="max-width: 500px">
+        Sign in and Stay updated on your professional world
+      </p>
+    </div>
+    <div class="register-form-wrapper">
+      <form
+        class="register-form"
+        enctype="multipart/form-data"
+        method="post"
+        autocomplete="off"
+      >
+        {{form.hidden_tag()}} {{ form.csrf_token }} {{form.email.label}}
+        {{form.email(class = "reg-inp", placeholder = "Email@gmail.com")}} {%for
+        error in form.email.errors %}
+        <span>{{error}}</span>
+        {%endfor%}{{form.password.label}} {{form.password(class = "reg-inp"
+        ,placeholder = "********")}} {%for error in form.password.errors %}
+        <span>{{error}}</span>
+        {%endfor%} {%if error %} {%for error in form.errors %}
+        <span>{{error}}</span>
+        {%endfor%} {%endif%} {{form.submit(class='reg-submit')}}
+      </form>
+      <div class="already-have-account">
+        <p>New to LinkedIn? <a href="/register">Join Now</a></p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,14 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='style/welcome.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='style/navbar.css')}}"
+    />
+    <script
+      src="https://kit.fontawesome.com/5eabe89611.js"
+      crossorigin="anonymous"
+    ></script>
 
     <title>Document</title>
-</head>
-<body>
-    
-    
-</body>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-img-container">
+        <img
+          onclick="location.assign('/')"
+          class="nav-logo"
+          src="{{url_for('static',filename = 'assets/LI-Logo.png')}}"
+          alt=""
+        />
+      </div>
+      <div class="btn-container">
+        <div class="leftbtns">
+          <div class="icon-btn-container">
+            <i class="fa-regular fa-newspaper"></i>
+            <span>Articles</span>
+          </div>
+          <div class="icon-btn-container">
+            <i class="fa-solid fa-user-group"></i>
+            <span>People</span>
+          </div>
+          <div class="icon-btn-container">
+            <i class="fa-solid fa-suitcase"></i>
+            <span>Jobs</span>
+          </div>
+        </div>
+        <div class="blank"></div>
+        <div class="rightbtns">
+          <button onclick="location.assign('/register')" class="join-btn">
+            Join Now
+          </button>
+          <button onclick="location.assign('/login')" class="login-btn">
+            Sign in
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div class="content-wrapper">
+      <div class="leftside">
+        <div class="login-container">
+          <p class="welcome-txt">Welcome to your professional community</p>
+          <form action="/login/welcome" method="post" class="login-form">
+            <label for="email">Email</label>
+            <input type="email" class="login-inp" name="email" />
+            <label for="password">Password</label>
+            <input type="password" class="login-inp" name="password" />
+            <input type="submit" class="login-submit" value="Sign in" />
+          </form>
+        </div>
+        <div class="new-user-wrapper">
+          <div class="blank1"></div>
+          <div class="text"><span>or</span></div>
+          <div class="blank1"></div>
+        </div>
+        <button
+          onclick="location.assign('/register')"
+          class="newtolinkedin-btn"
+        >
+          New to LinkedIn? Join Now
+        </button>
+      </div>
+      <div class="rightside">
+        <img
+          src="{{url_for('static', filename='assets/dxf91zhqd2z6b0bwg85ktm5s4.svg')}}"
+          alt=""
+        />
+      </div>
+    </div>
+  </body>
 </html>

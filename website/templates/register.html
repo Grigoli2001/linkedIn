@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='style/navbar.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='style/register.css')}}"
+    />
+    <script
+      src="https://kit.fontawesome.com/5eabe89611.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Register</title>
+  </head>
+  <body>
+    <nav>
+      <img
+        style="cursor: pointer"
+        onclick="location.assign('/')"
+        src="{{url_for('static',filename='assets/Li-Logo.png')}}"
+        alt=""
+      />
+    </nav>
+    <div class="register-wrapper">
+      <p class="reg-text">Make the most of your professional life</p>
+    </div>
+    <div class="register-form-wrapper">
+      <form
+        class="register-form"
+        enctype="multipart/form-data"
+        method="post"
+        autocomplete="off"
+      >
+        {{reg_form.hidden_tag()}} {{ reg_form.csrf_token }}
+        <div class="profile-pic-wrapper">
+          <img
+            id="profilePic"
+            src="https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg"
+            alt=""
+          />
+          {{reg_form.profile_pic(class = "uploadProfileInput", id =
+          "newProfilePhoto")}}
+          <label for="newProfilePhoto" class="uploadProfileLabel"
+            ><i class="fa-solid fa-camera"></i
+          ></label>
+        </div>
+        {{reg_form.username.label}} {{reg_form.username(class = "reg-inp",
+        placeholder = 'Username')}} {%for error in reg_form.username.errors %}
+        <span>{{error}}</span>
+        {%endfor%} {{reg_form.email.label}} {{reg_form.email(class = "reg-inp",
+        placeholder = "Email@gmail.com")}} {%for error in reg_form.email.errors
+        %}
+        <span>{{error}}</span>
+        {%endfor%}{{reg_form.fullname.label}} {{reg_form.fullname(class =
+        "reg-inp", placeholder = "John Doe")}} {%for error in
+        reg_form.fullname.errors %}
+        <span>{{error}}</span>
+        {%endfor%} {{reg_form.password.label}} {{reg_form.password(class =
+        "reg-inp" ,placeholder = "********")}} {%for error in
+        reg_form.password.errors %}
+        <span>{{error}}</span>
+        {%endfor%} {{reg_form.confirm_password.label}}
+        {{reg_form.confirm_password(class = "reg-inp",placeholder =
+        "********")}} {%for error in reg_form.confirm_password.errors %}
+        <span>{{error}}</span>
+        {%endfor%} {%if error == "UNIQUE constraint failed: users.email"%}
+        <span
+          >Account already exists with this email try logging in:
+          <a href="/login">login</a></span
+        >
+        {%else%} {%for error in reg_form.errors %}
+        <span>{{error}}</span>
+        {%endfor%} {%endif%} {{reg_form.submit(class='reg-submit')}}
+      </form>
+      <div class="already-have-account">
+        <p>Already on LinkedIn? <a href="/login">Sign in</a></p>
+      </div>
+    </div>
+
+    <script>
+      const profilePic = document.getElementById("profilePic");
+      const newProfilePhoto = document.getElementById("newProfilePhoto");
+      newProfilePhoto.addEventListener("change", () => {
+        const file = newProfilePhoto.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.addEventListener("load", () => {
+            profilePic.setAttribute("src", reader.result);
+          });
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+  </body>
+</html>
