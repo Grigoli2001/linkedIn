@@ -26,6 +26,8 @@ class LoginForm(FlaskForm):
 
 class PostForm(FlaskForm):
     content = TextAreaField()
-    media = FileField('Media')
+    media = FileField('Media', validators=[
+        FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Only image files are allowed.')  # Specifies allowed file types
+    ]) 
     submit = SubmitField('POST')
 

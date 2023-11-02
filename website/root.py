@@ -2,8 +2,11 @@ import os
 from flask import Blueprint, render_template,url_for, jsonify,g, request, redirect, flash, current_app
 import sqlite3
 from flask_login import login_required,current_user,logout_user
-from .APIs.forms import LoginForm
+from .APIs.forms import LoginForm , PostForm
 from .APIs.mongoDB import client
+from datetime import datetime
+
+from werkzeug.utils import secure_filename
 
 from bson import ObjectId
 
@@ -56,15 +59,146 @@ def show_users():
     # Pass the user data to the template
     return jsonify(users)
 
+def get_user_info_by_id(user_id):
+    conn = conn_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users WHERE id=?", (user_id,))
+    user = cursor.fetchone()
+    if user:   
+        return user
+    return None
+
+
 @root.route('/home')
 @login_required
 def home():
-    return render_template('home.html')
+    form = PostForm()
+    db = client['linkedIn']
+    collection = db['tweets']
+    tweets = list(collection.find())
+    for tweet in tweets:
+        tweet['_id'] = str(tweet['_id'])
+        user_info = get_user_info_by_id(tweet['user_id'])
+        if user_info:
+            tweet['author_name'] = user_info[1]  # Access username using integer index
+            tweet['author_profile_pic'] = user_info[4]  # Access profile_pic_path using integer index
+            tweet['author_fullname'] = user_info[5]
+        else:
+            # Handle the case where the author was not found
+            tweet['author_fullname'] = "Unknown"
+            tweet['author_name'] = 'Unknown'
+            tweet['author_profile_pic'] = None
+    tweets.reverse()
+    return render_template('home.html', tweets = tweets, form = form)
 
 
+
+@root.route('/jobs')
+@login_required
+def jobs():
+    db = client['linkedIn']
+    collection = db['jobs']
+    jobs = list(collection.find())
+    for job in jobs:
+        if current_user.id in job['saved_by']:
+            job['saved'] = True
+    return render_template('jobs.html',jobs = jobs)
+
+
+
+@root.route('/save_item/<id>', methods=['GET','POST'])
+@login_required
+def save_item(id):
+    db = client['linkedIn']
+    jobs = db['jobs']
+    user_id = current_user.id
+    job_id = ObjectId(id)
+    jobs.update_one({'_id' : job_id}, {'$push' : {'saved_by' : user_id}})
+    return redirect(url_for('root.jobs'))
+
+@root.route('/delete_item/<id>', methods=['GET','POST'])
+@login_required
+def delete_item(id):
+    db = client['linkedIn']
+    collection = db['my_items']
+    jobs = db['jobs']
+    try:
+        object_id = ObjectId(id)
+    except Exception as e:
+        print(f"Invalid ObjectId: {e}")
+    collection.delete_one({'_id' : object_id})
+    jobs.update_one({'_id' : object_id}, {'$pull' : {'saved_by' : current_user.id}})
+    return redirect(url_for('root.my_items'))
+
+@root.route('/my_items')
+@login_required
+def my_items():
+    db = client['linkedIn']
+    collection = db['jobs']
+    jobs = list(collection.find())
+    saved = []
+    for job in jobs:
+        if current_user.id in job['saved_by']:
+            saved.append(job)
+    return render_template('my_items.html',jobs = saved)
 @root.route("/logout")
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('root.index'))
 
+
+
+@root.route('/add_tweet', methods=[ 'GET','POST'])
+@login_required
+def addTweet():
+    db = client['linkedIn']
+    collection = db['tweets']
+    form = PostForm()  # Create an instance of the TweetForm
+    if request.method == 'POST':     
+        print("submited")   
+        user_id = current_user.id
+        content = form.content.data
+        # Get the current timestamp
+        created_at = datetime.now().isoformat()
+
+        image = form.media.data  # Get the uploaded image
+        if not content.strip() and not image:
+            flash('Please provide either content or an image.', 'danger')
+            return redirect(url_for('root.home'))
+        # Check if an image was uploaded
+        if image:
+            image_filename = secure_filename(image.filename)
+            image_path = os.path.join(current_app.config['UPLOAD_FOLDER'], image_filename)
+            image.save(image_path)
+            
+            # Save the image path in the database
+            image_db_path = os.path.join('static', 'uploads', image_filename)  # Relative path for HTML
+        else:
+            image_db_path = None  # Handle the case where no image was uploaded
+        
+        tweet = {
+            'user_id': user_id,
+            'content': content,
+            'created_at': created_at,
+            'updated_at': None,
+            'image_path': image_db_path  # Save the image path in the database
+        }
+        collection.insert_one(tweet)
+
+        return redirect(url_for('root.home'))
+
+    return redirect(url_for('root.home'))
+  
+
+@root.route('/delete_tweet/<id>')
+@login_required
+def delete_tweet(id):
+    db = client['linkedIn']
+    collection = db['tweets']
+    try:
+        object_id = ObjectId(id)
+    except Exception as e:
+        print(f"Invalid ObjectId: {e}")
+    collection.delete_one({'_id' : object_id})
+    return redirect(url_for('root.home'))

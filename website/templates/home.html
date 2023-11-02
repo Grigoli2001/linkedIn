@@ -9,6 +9,10 @@
     />
     <link
       rel="stylesheet"
+      href="{{url_for('static', filename='style/.css')}}"
+    />
+    <link
+      rel="stylesheet"
       href="{{url_for('static', filename='style/main-navbar.css')}}"
     />
     <script
@@ -19,5 +23,228 @@
   </head>
   <body>
     {%include 'navbar.html'%}
+
+    <div class="content-wrapper">
+      <div class="content-leftside">
+        <div class="leftside-content-wrapper">
+          <div class="profile-box">
+            <div class="cover-pic">
+              <img
+                src="https://images.unsplash.com/photo-1628427634386-7a6e2d1f55ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80"
+                alt=""
+              />
+            </div>
+            <div class="blankspace"></div>
+            <img src="{{current_user.profile_pic}}" alt="" />
+          </div>
+          <div class="description">
+            <div class="fullname">{{current_user.fullname}}</div>
+            <div class="title">{{current_user.description}}</div>
+          </div>
+          <div class="profile-viewers">
+            <span>Profile viewers</span>
+            <span>38</span>
+          </div>
+          <div onclick="location.assign('/my_items')" class="my-items">
+            <i class="fa-solid fa-bookmark"></i>
+            <span>My items</span>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="post-input-wrapper">
+          <form
+            class="post-form"
+            action="/add_tweet"
+            enctype="multipart/form-data"
+            method="post"
+          >
+            {{form.hidden_tag()}}
+            <div class="post-input">
+              <div class="post">
+                <img src="{{current_user.profile_pic}}" alt="" />
+                {{form.content(class="post-input-text", placeholder="Start a post")}}
+              </div>
+              <div
+                class="image-preview-container"
+                id="imagePreviewContainer"
+                style="display: none"
+              >
+                <button id="removePreview" onclick="removePreview()">
+                  Remove Image
+                </button>
+                <img src="" alt="" id="imgpreview" class="image-preview" />
+              </div>
+            </div>
+            <div class="post-footer">
+              <div class="post-footer-icons">
+                {{form.media(class="media", id="media",
+                onchange="previewFile()")}}
+                <label for="media">
+                  <i class="fa-solid fa-image"></i>Media
+                </label>
+              </div>
+              <div class="post-footer-btn">
+                {{form.submit(class="post-btn")}}
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="posts-wrapper">
+          {%for tweet in tweets%}
+          <div class="post-card">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="{{tweet.author_profile_pic}}" alt="" />
+                <div class="post-header-info">
+                  <div class="post-header-info-name">
+                    {{tweet.author_fullname}}
+                  </div>
+                  <div class="post-header-info-time">
+                    <span id="createdAt">{{tweet.created_at}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="post-header-right" data-menu-id="{{ tweet._id }}">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+              <div class="drop-down-menu" id="{{ tweet._id }}">
+                {%if tweet.user_id == current_user.id%}
+                <button>
+                  <span>
+                    <i class="fa-solid fa-pencil"></i>
+                  </span>
+                  Edit
+                </button>
+                <button
+                  onclick="location.assign('/delete_tweet/{{tweet._id}}')"
+                >
+                  <span>
+                    <i class="fa-solid fa-trash"></i> </span
+                  >Delete
+                </button>
+                {%else%}
+                <button>
+                  <span>
+                    <i class="fa-solid fa-bookmark"></i> </span
+                  >Save
+                </button>
+                <button>
+                  <span>
+                    <i class="fa-solid fa-ban"></i> </span
+                  >Hide
+                </button>
+                {%endif%}
+              </div>
+            </div>
+            <div class="post-body">
+              <div class="post-body-text">{{tweet.content}}</div>
+              {%if tweet.image_path%}
+              <div class="post-body-img">
+                <img class="post-image" src="{{tweet.image_path}}" alt="" />
+              </div>
+              {%endif%}
+            </div>
+            <div class="post-footeer"></div>
+          </div>
+          {%endfor%}
+        </div>
+      </div>
+      <div class="content-rightside"></div>
+    </div>
+    <script>
+      function previewFile() {
+        var previewContainer = document.getElementById('imagePreviewContainer');
+        var preview = document.getElementById('imgpreview');
+        var file = document.getElementById('media').files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+          preview.src = reader.result;
+          previewContainer.style.display = 'flex';
+        };
+
+        if (file) {
+          reader.readAsDataURL(file);
+        } else {
+          preview.src = '';
+        }
+      }
+
+      function removePreview() {
+        var file = document.getElementById('media');
+        var previewContainer = document.getElementById('imagePreviewContainer');
+        previewContainer.style.display = 'none';
+        file.value = '';
+      }
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const tweetCards = document.querySelectorAll('.post-card');
+
+        tweetCards.forEach(function (tweetCard) {
+          const postTime = tweetCard.querySelector('.post-header-info-time');
+          const createdAtSpan = tweetCard.querySelector('#createdAt');
+
+          // Get the ISO date from the createdAtSpan
+          const createdAtISO = createdAtSpan.textContent;
+
+          // Parse the ISO 8601 timestamp
+          const tweetCreatedAt = new Date(createdAtISO);
+
+          // Calculate the time difference in seconds
+          const now = new Date();
+          const secondsAgo = Math.floor((now - tweetCreatedAt) / 1000);
+
+          // Format the timestamp as "X seconds/minutes/hours/days ago"
+          if (secondsAgo < 60) {
+            postTime.textContent = secondsAgo + 's ago';
+          } else if (secondsAgo < 3600) {
+            const minutesAgo = Math.floor(secondsAgo / 60);
+            postTime.textContent = minutesAgo + 'm ago';
+          } else if (secondsAgo < 86400) {
+            const hoursAgo = Math.floor(secondsAgo / 3600);
+            postTime.textContent = hoursAgo + 'h ago';
+          } else {
+            const daysAgo = Math.floor(secondsAgo / 86400);
+            postTime.textContent = daysAgo + 'd ago';
+          }
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const postMenus = document.querySelectorAll('.post-header-right');
+
+        postMenus.forEach(function (postMenu) {
+          postMenu.addEventListener('click', (event) => {
+            // Prevent the click event from propagating to the body click event
+            event.stopPropagation();
+
+            const menuId = postMenu.getAttribute('data-menu-id');
+            const menu = document.getElementById(menuId);
+
+            if (menu.classList.contains('opened')) {
+              menu.classList.remove('opened');
+            } else {
+              menu.classList.add('opened');
+            }
+          });
+        });
+
+        // Add a click event listener to the document body to close the menu when clicking outside
+        document.body.addEventListener('click', (event) => {
+          const openedMenus = document.querySelectorAll(
+            '.drop-down-menu.opened'
+          );
+          openedMenus.forEach((menu) => {
+            if (event.target !== menu && event.target !== postMenus) {
+              menu.classList.remove('opened');
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>

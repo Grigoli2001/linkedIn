@@ -104,19 +104,26 @@ nav {
   color: rgb(0, 0, 0);
 }
 .navbar-me-menu {
-  position: absolute;
+  position: fixed;
   top: 65px;
   right: 20%;
   width: 300px;
   border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   /* display: none; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease 0s;
+  max-height: 0;
   z-index: 999;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.navbar-me-menu.open {
+  max-height: 500px;
+  transition: max-height 2s ease;
 }
 .navbar-me-menu-profile {
   display: flex;
@@ -171,6 +178,26 @@ nav {
 }
 .view-profile-btn:hover {
   background-color: rgba(0, 119, 216, 0.2);
+}
+
+.logout{
+  margin: 5px;
+}
+.logout>button{
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: 1px solid rgb(195, 0, 0);
+  color: rgb(195, 0,0);
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.logout>button:hover{
+  background-color: rgba(195, 0, 0, 0.2);
 }
 @media screen and (max-width: 1000px) {
   .nav-btn > span {

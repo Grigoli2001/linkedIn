@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='style/home.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='style/job-card.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='style/main-navbar.css')}}"
+    />
+    <script
+      src="https://kit.fontawesome.com/5eabe89611.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Jobs</title>
+  </head>
+  <body>
+    {%include 'navbar.html'%}
+
+    <div class="content-wrapper">
+      <div class="content-leftside">
+        <div class="leftside-content-wrapper">
+          <div class="profile-box">
+            <div class="cover-pic">
+              <img
+                src="https://images.unsplash.com/photo-1628427634386-7a6e2d1f55ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80"
+                alt=""
+              />
+            </div>
+            <div class="blankspace"></div>
+            <img src="{{current_user.profile_pic}}" alt="" />
+          </div>
+          <div class="description">
+            <div class="fullname">{{current_user.fullname}}</div>
+            <div class="title">{{current_user.description}}</div>
+          </div>
+          <div class="profile-viewers">
+            <span>Profile viewers</span>
+            <span>38</span>
+          </div>
+          <div onclick="location.assign('/my_items')" class="my-items">
+            <i class="fa-solid fa-bookmark"></i>
+            <span>My items</span>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        {% for job in jobs %}
+        <div class="job-card" onclick="displayApplication(
+          '{{job._id}}',
+          '{{job.job_title}}',
+          '{{job.job_description}}',
+          '{{job.company}}',
+          '{{job.job_type}}',
+          '{{job.location}}',
+          '{{job.salary}}',
+          '{{job.application_deadline}}',
+          '{{job.application_process}}',
+          `{{job.job_requirements}}`,
+          '{{job.skills}}',
+          '{{job.date_posted}}',
+          '{{job.contact_information}}',
+          '{{job.posted_by}}'
+        )"
+        >
+          <div class="card-content-wrapper">
+            <div class="company-logo">
+              <img src="https://picsum.photos/200?random={{ job._id }}" />
+            </div>
+            <div class="job-card-content">
+              <div class="title-company">
+                <span class="card-title">{{job.job_title}} - {{job.job_type}}</span>
+                <span>{{job.company}}</span>
+              </div>
+              <span class="location">{{job.location}}</span>
+              <span class="location">{{job.salary}}</span>
+            </div>
+            <div class="icons">
+              <div class="save" onclick="saveJob('{{job._id}}')">
+                {%if job.saved %}
+                <i id="{{job._id}}" class="fa-solid fa-bookmark"></i>
+                {%else%}
+                <i id="{{job._id}}" class="fa-regular fa-bookmark"></i>
+                {%endif%}
+              </div>
+              
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>{{job.date_posted}}</span>
+            <span>{{job.application_count}} Applicants</span>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+      <div class="content-rightside">
+        <div class="application-container">
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function saveJob(jobId) {
+        const icon = document.getElementById(jobId);
+      
+        // Toggle the 'fa-regular' and 'fa-solid' classes
+        icon.classList.toggle('fa-regular');
+        icon.classList.toggle('fa-solid');
+      
+        const xhr = new XMLHttpRequest();
+        if (icon.classList.contains('fa-solid')) {
+          xhr.open('POST', '/save_item/' + jobId);
+        } else {
+          xhr.open('POST', '/delete_item/' + jobId);
+        }
+        xhr.send();
+      
+        // Add a class to trigger the CSS animation
+        icon.classList.add('ticked-animation');
+      
+        // Remove the animation class after the animation is complete
+        icon.addEventListener('animationend', () => {
+          icon.classList.remove('ticked-animation');
+        });
+      
+        console.log('Toggled');
+      }
+
+      function displayApplication(jobId, jobTitle, 
+      job_description, company, job_type, location, salary, application_deadline, application_process, requirements, skills, date_posted, contact_information, posted_by) {
+        const applicationContainer = document.querySelector('.application-container');
+        
+        const applicationHTML = `
+      <div class="job-application">
+        <h2>${jobTitle}</h2>
+        <p>${job_description}</p>
+        <h3>Requirements:</h3>
+        <p>${requirements}</p>
+        <h3>Application Instructions:</h3>
+        <p>${application_process}</p>
+      </div>
+    `;
+    
+    // Set the innerHTML of the application container to display the job application
+    applicationContainer.innerHTML = applicationHTML;
+      }
+    </script>
+  </body>
+</html>

@@ -21,7 +21,7 @@
     <nav>
       <div class="nav-wrapper">
         <div class="nav-left">
-          <div class="nav-logo">
+          <div onclick="location.assign('/')" class="nav-logo">
             <img
               class="nav-logo-img"
               src="{{url_for('static',filename='assets/LI-In-Bug.png')}}"
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="nav-right">
-          <div class="nav-btn">
+          <div onclick="location.assign('/home')"  class="nav-btn">
             <i class="fa-solid fa-house"></i>
             <span>Home</span>
           </div>
@@ -48,7 +48,7 @@
             <i class="fa-solid fa-user-group"></i>
             <span>My Network</span>
           </div>
-          <div class="nav-btn">
+          <div onclick="location.assign('/jobs')" class="nav-btn">
             <i class="fa-solid fa-suitcase"></i>
             <span>Jobs</span>
           </div>
@@ -63,7 +63,7 @@
         </div>
       </div>
     </nav>
-    <div style="display: none" class="navbar-me-menu">
+    <div  class="navbar-me-menu">
       <div class="navbar-me-menu-wrapper">
         <div class="navbar-me-menu-profile">
           <div class="navbar-me-menu-profile-img">
@@ -95,17 +95,17 @@
         // Prevent the click event from propagating to the body click event
         event.stopPropagation();
 
-        if (navbarMeMenu.style.display === "block") {
-          navbarMeMenu.style.display = "none";
+        if (navbarMeMenu.classList.contains("open")) {
+          navbarMeMenu.classList.remove("open");
         } else {
-          navbarMeMenu.style.display = "block";
+          navbarMeMenu.classList.add("open");
         }
       });
 
       // Add a click event listener to the document body to close the menu when clicking outside
       document.body.addEventListener("click", (event) => {
-        if (navbarMeMenu.style.display === "block" && event.target !== menu) {
-          navbarMeMenu.style.display = "none";
+        if (navbarMeMenu.classList.contains("open") && event.target !== menu) {
+          navbarMeMenu.classList.remove("open");
         }
       });
     </script>

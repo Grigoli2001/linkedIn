@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='style/job-card.css')}}"
+    />
+    <title>Document</title>
+</head>
+<body>
+    {%include 'navbar.html'%}
+    <div class="content-wrapper">
+        <div class="content-leftside">
+            <div class="leftside-content-wrapper">
+              <div class="profile-box">
+                <div class="cover-pic">
+                  <img
+                    src="https://images.unsplash.com/photo-1628427634386-7a6e2d1f55ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80"
+                    alt=""
+                  />
+                </div>
+                <div class="blankspace"></div>
+                <img src="{{current_user.profile_pic}}" alt="" />
+              </div>
+              <div class="description">
+                <div class="fullname">{{current_user.fullname}}</div>
+                <div class="title">{{current_user.description}}</div>
+              </div>
+              <div class="profile-viewers">
+                <span>Profile viewers</span>
+                <span>38</span>
+              </div>
+              <div onclick="location.assign('/my_items')" class="my-items">
+                <i class="fa-solid fa-bookmark"></i>
+                <span>My items</span>
+              </div>
+            </div>
+          </div>
+          <div class="main-content">
+            {% for job in jobs %}
+            <div class="job-card">
+              <div class="card-content-wrapper">
+                <div class="company-logo">
+                  <img src="https://picsum.photos/200?random={{ job._id }}" />
+                </div>
+                <div class="job-card-content">
+                  <div class="title-company">
+                    <span class="card-title">{{job.job_title}} - {{job.job_type}} </span>
+                    <span>{{job.company}}</span>
+                  </div>
+                  <span class="location">{{job.location}}</span>
+                  <span class="location">{{job.salary}}</span>
+                </div>
+                <div onclick="removeJob('{{job._id}}')" class="icons">
+                  <div class="save">
+                    <i id="{{job._id}}" class="fa-solid fa-bookmark"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <span>{{job.date_posted}}</span>
+                <span>{{job.application_count}} Applicants</span>
+              </div>
+            </div>
+            {%endfor%}
+          </div>
+          <div class="content-rightside"></div>
+    </div>
+    <script>
+      function removeJob(jobId) {
+        const icon = document.getElementById(jobId);
+        icon.classList.remove('fa-solid');
+        icon.classList.add('fa-regular');
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/delete_item/' + jobId);
+        xhr.send();
+        location.reload();
+      }
+    </script>
+</body>
+</html>

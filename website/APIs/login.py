@@ -15,6 +15,9 @@ class User(UserMixin):
         self.authenticated = False
         self.profile_pic = "https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg"
         self.fullname = None
+        self.proffesion = "Full-Stack Developer"
+        self.current_company = "LinkedIn"
+        self.description = f"{self.proffesion} - {self.current_company}"
     def is_active(self):
          return self.is_active()
     def is_anonymous(self):
