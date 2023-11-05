@@ -1,6 +1,6 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-
+from random import randint
 # uri = "mongodb+srv://gega:gega2001@cluster0.v7rln8c.mongodb.net/?retryWrites=true&w=majority"
 uri = "mongodb://localhost:27017"
 client = MongoClient(uri, server_api=ServerApi('1'))
@@ -1692,9 +1692,13 @@ jobs = [
     
 ]
 
+
 if collection.count_documents({}) == 0:
     # Insert the products if they don't exist
     collection.insert_many(jobs)
+    collection.update_many({}, {"$set": {"saved_by": []}})
+    for job in jobs:
+        collection.update_one({"job_id": job["job_id"]}, {"$set": {"logo": f"https://picsum.photos/200?random={randint(1, 1000)}"}})
     print("Products inserted successfully!")
 
 

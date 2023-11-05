@@ -17,10 +17,6 @@
 }
 .main-content {
   flex: 1.4;
-  transition: opacity 0.3s ease, flex 0.3s ease; /* Apply transitions to both opacity and flex */
-}
-.content-rightside {
-  flex: 1;
 }
 
 .profile-box {
