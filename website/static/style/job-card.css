@@ -144,10 +144,13 @@
   background-color: white;
   opacity: 0;
   flex: 0;
+  height: 80vh;
   transition: opacity 0.3s ease, flex 0.3s ease;
   border-radius: 5px;
   width: 30%;
   padding: 20px;
+  overflow-x: scroll;
+  overflow-anchor: none;
 }
 .job-application-header {
 }
@@ -166,6 +169,7 @@
 }
 .job-application-info {
   padding: 30px;
+  padding-bottom: 0;
 }
 
 .job-detail {
@@ -204,6 +208,13 @@
   width: 100px;
   border-radius: 25px;
   margin-right: 10px;
+  transition: background-color 0.8s ease, color 0.3s ease;
+
+}
+.btn-saved{
+  background-color: rgb(71, 137, 203);
+  color: white;
+  border: none;
 }
 .apply-btn:hover {
   cursor: pointer;
@@ -214,4 +225,99 @@
   border: 2px solid rgb(10, 102, 194);
   background-color: rgb(172, 203, 235);
   color: white;
+}
+
+.application-box{
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.application-box.closed{
+  opacity: 0;
+}
+.application-box.opened{
+  opacity: 1;
+  
+}
+
+.application-wrapper{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  
+}
+
+.application-form{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 70vh;
+}
+
+.application-form > label{
+  font-size: 13px;
+  font-weight: 400;
+  color: #8e8e8e;
+  margin-bottom: 5px;
+}
+.application-form > input{
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.application-form > textarea{
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.btn-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.btn-div > button{
+  background-color: #0a66c2;
+  color: white;
+  border: none;
+  width: 100px;
+  margin-right: 10px;
+  height: 30px;
+  transition: background-color 0.8s ease, color 0.3s ease;
+  font-size: large;
+}
+#cancelApplication{
+  background-color: #0a66c2;
+  color: white;
+  border: none;
+  width: 100px;
+  margin-right: 10px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-div > button:hover, #cancelApplication:hover{
+  cursor: pointer;
+  background-color: rgb(10, 74, 138);
 }

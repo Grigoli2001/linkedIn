@@ -129,15 +129,22 @@
         <div class="application-container"></div>
       </div>
     </div>
-
+    <div class="application-box closed">
+      <div class="application-wrapper">
+        
+      </div>
+     
+    </div>
     <script>
       function saveJob(jobId) {
         const icon = document.getElementById(jobId);
+        const saveBtn = document.getElementById("saveBtn" + jobId);
 
         // Toggle the 'fa-regular' and 'fa-solid' classes
         icon.classList.toggle("fa-regular");
         icon.classList.toggle("fa-solid");
-
+        saveBtn.classList.toggle("btn-saved");
+        saveBtn.innerHTML = saveBtn.innerHTML == "Save" ? "Saved" : "Save";
         const xhr = new XMLHttpRequest();
         if (icon.classList.contains("fa-solid")) {
           xhr.open("POST", "/save_item/" + jobId);
@@ -180,6 +187,7 @@
         const applicationContainer = document.querySelector(
           ".application-container"
         );
+        const icon = document.getElementById(jobId);
         const mainContent = document.querySelector(".content-rightside-job");
         // Iterate through the properties of the requirementsObject
         const requirementsList = Object.keys(requirements)
@@ -224,8 +232,8 @@
                 </div>
               </div>
               <div class="job-application-action">
-                <button class="apply-btn">Apply</button>
-                <button class="save-btn" onclick="saveJob('${jobId}')">Save</button>
+                <button class="apply-btn" onclick="displayApplicationForm('${jobId}')">Apply</button>
+                <button class="${icon.classList.contains("fa-solid") ? "save-btn btn-saved" : "save-btn"}" id="saveBtn${jobId}" onclick="saveJob('${jobId}')">${icon.classList.contains("fa-solid") ? "Saved" : "Save"}</button>
               </div>
               <div class="job-application-content">
                 <h4>About the job</h4>
@@ -247,6 +255,75 @@
           mainContent.style.flex = 1.5;
         }, 200);
       }
+      
+      function displayApplicationForm(jobId) {
+        console.log(jobId);
+        const applicationContainer = document.querySelector(
+          ".application-box"
+        );
+        const applicationWrapper = document.querySelector(
+          ".application-wrapper"
+        );
+        
+        const applicationHTML = `<form class="application-form" enctype="multipart/form-data" method="post" >
+          <label for="fullname">Full Name</label>
+          <input name="fullname" type="text" value="{{current_user.fullname}}" required>
+          <label for="email">Email</label>
+          <input name="email" type="text" value="{{current_user.email}}" required>
+          <label for="phone_number">Phone Number</label>
+          <input name="phone_number" type="text">
+          <label for="resume">Resume</label>
+          <input name="resume" type="file" value="" required>
+          <label for="cover_letter">Cover Letter</label>
+          <textarea name="cover_letter" id="" cols="30" rows="10"></textarea>
+          <input type="hidden" name="job_id" value="${jobId}">
+          <div class="btn-div">
+            <button type="submit">Submit</button>
+            <div id= "cancelApplication">Cancel</div>
+          </div>
+        </form>`;
+        // Set the innerHTML of the application container to display the job application
+        applicationWrapper.innerHTML = applicationHTML;
+
+
+        applicationContainer.classList.remove("closed");
+        applicationContainer.style.display = "flex";
+        applicationContainer.style.opacity = 0;
+        setTimeout(() => {
+          applicationContainer.style.opacity = 1;
+        }, 200);
+
+        let cancelApplication = document.getElementById("cancelApplication");
+        cancelApplication.addEventListener("click", () => {
+          applicationContainer.style.opacity = 0;
+          setTimeout(() => {
+            applicationContainer.style.display = "none";
+            applicationContainer.classList.add("closed");
+          }, 200);
+        });
+
+        let applicationForm = document.querySelector(".application-form");
+        applicationForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          let formData = new FormData(applicationForm);
+          let xhr = new XMLHttpRequest();
+          xhr.open("POST", "/apply_job");
+          xhr.send(formData);
+          xhr.onload = () => {
+            if (xhr.status == 200) {
+              console.log(xhr.response);
+              alert("Application submitted successfully");
+              applicationContainer.style.opacity = 0;
+              setTimeout(() => {
+                applicationContainer.style.display = "none";
+                applicationContainer.classList.add("closed");
+              }, 200);
+            }
+          };
+        });
+
+      }
+
     </script>
   </body>
 </html>

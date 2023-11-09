@@ -202,3 +202,54 @@ def delete_tweet(id):
         print(f"Invalid ObjectId: {e}")
     collection.delete_one({'_id' : object_id})
     return redirect(url_for('root.home'))
+
+# to do 
+# add a route to edit a tweet
+@root.route('/edit_tweet/<id>', methods=['GET','POST'])
+@login_required
+def edit_tweet(id):
+    pass
+
+
+@root.route('/apply_job' , methods=['GET','POST'])
+@login_required
+def apply_job():
+    db = client['linkedIn']
+    collection = db['applications']
+    if request.method == 'POST':
+        form = request.form
+        job_id = form['job_id']
+        fullname = form['fullname']
+        email = form['email'].lower() 
+        resume = request.files['resume']
+        phone_number = form['phone_number'].strip()
+        cover_letter = form['cover_letter'] 
+        if resume:
+            resume_name = secure_filename(resume.filename)
+            resume_path = os.path.join(current_app.config['APPLICATION_FOLDER'], resume_name)
+            resume.save(resume_path)
+            
+            # Save the image path in the database
+            resume_db_path = os.path.join('static', 'uploads', resume_name)  # Relative path for HTML
+        else:
+            resume_db_path = None  # Handle the case where no image was uploaded
+        user_id = current_user.id
+        job = {
+            'job_id' : job_id,
+            'fullname' : fullname,
+            'email' : email,
+            'resume' : resume_db_path,
+            'phone_number' : phone_number,
+            'cover_letter' : cover_letter,
+
+        }
+        applied = {
+            'user_id' : user_id,
+            'jobs_applied' : [job]
+        }
+
+        if collection.find_one({'user_id' : user_id}):
+            collection.update_one({'user_id' : user_id}, {'$push' : {'jobs_applied' : job}})
+        else:
+            collection.insert_one(applied)
+        return redirect(url_for('root.jobs'))

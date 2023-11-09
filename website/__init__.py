@@ -6,6 +6,7 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'qwerty'
     app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static', 'uploads')
+    app.config['APPLICATION_FOLDER'] = os.path.join(app.root_path, 'static', 'applications')
     # Initialize the LoginManager
     login_manager.login_view = 'login_blueprint.login_logic'  # Set the login view
     login_manager.init_app(app)
