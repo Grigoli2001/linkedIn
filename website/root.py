@@ -5,6 +5,8 @@ from flask_login import login_required,current_user,logout_user
 from .APIs.forms import LoginForm , PostForm
 from .APIs.mongoDB import client
 from datetime import datetime
+import logging
+import time
 
 from werkzeug.utils import secure_filename
 
@@ -185,7 +187,7 @@ def addTweet():
             'image_path': image_db_path  # Save the image path in the database
         }
         collection.insert_one(tweet)
-
+        logging.info("Submitted a tweet.")
         return redirect(url_for('root.home'))
 
     return redirect(url_for('root.home'))

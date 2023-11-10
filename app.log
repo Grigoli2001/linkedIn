@@ -1,0 +1,110 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:2000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:root:Request started: http://127.0.0.1:2000/
+INFO:root:Request finished in 0.0306 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "[32mGET / HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.1467 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0073 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request finished in 0.3079 seconds
+INFO:root:Request finished in 0.3112 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.3061 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "[36mGET /static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.3120 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/jobs
+INFO:root:Request finished in 0.1173 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:56] "GET /jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:56] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:56] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0032 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:56] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg
+INFO:root:Request finished in 0.0304 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:56] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0051 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:56] "[36mGET /static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0070 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:07] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0200 seconds
+INFO:root:Request finished in 0.0130 seconds
+INFO:root:Request finished in 0.0126 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:07] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:07] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:07] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0180 seconds
+INFO:root:Request finished in 0.0130 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:07] "[36mGET /static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:07] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/add_tweet
+INFO:root:Submitted a tweet.
+INFO:root:Request finished in 0.0306 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:10] "[32mPOST /add_tweet HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0160 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:10] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:11] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0160 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0069 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:11] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:11] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg
+INFO:root:Request finished in 0.0112 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:11] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0089 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:11] "[36mGET /static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/
+INFO:root:Request finished in 0.0089 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "[32mGET / HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0110 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request started: http://127.0.0.1:2000/static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg
+INFO:root:Request finished in 0.0031 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "[36mGET /static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Gega\\Desktop\\linkedIn\\main.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
