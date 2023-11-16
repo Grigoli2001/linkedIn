@@ -1,0 +1,36 @@
+<div class="content-leftside">
+  <div class="leftside-content-wrapper">
+    <div class="profile-box">
+      <div class="cover-pic">
+        <img
+          src="https://images.unsplash.com/photo-1628427634386-7a6e2d1f55ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80"
+          alt=""
+        />
+      </div>
+      <div class="blankspace"></div>
+      <img src="{{current_user.profile_pic}}" alt="" />
+    </div>
+    <div class="description">
+      <div class="fullname">{{current_user.fullname}}</div>
+      <div class="title">{{current_user.description}}</div>
+    </div>
+    <div class="profile-viewers">
+      <span>Profile viewers</span>
+      <span>38</span>
+    </div>
+    <div onclick="location.assign('/my_items')" class="my-items">
+      <i class="fa-solid fa-bookmark"></i>
+      <span>My items</span>
+    </div>
+    {%if current_user.is_employer()%}
+    <div onclick="location.assign('/my_jobs')" class="my-items">
+      <i class="fa-solid fa-briefcase"></i>
+      <span>My jobs</span>
+    </div>
+    {%endif%}
+    <div onclick="location.assign('/my_applications')" class="my-items">
+      <i class="fa-solid fa-briefcase"></i>
+      <span>My applications</span>
+    </div>
+  </div>
+</div>

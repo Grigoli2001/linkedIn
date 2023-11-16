@@ -14,7 +14,7 @@ register = Blueprint('register',__name__)
 def add_user_form():
     form = RegistrationForm()
     if form.validate_on_submit():
-        username = form.username.data
+        employer = form.employer.data
         email = form.email.data.lower()
         password = form.password.data
         profile_pic = form.profile_pic.data
@@ -31,12 +31,13 @@ def add_user_form():
         try:
             db = conn_db()
             cursor = db.cursor()
-            cursor.execute('INSERT INTO users (username, email, password,profile_pic_path,fullname) VALUES (?, ?, ?,?,?)', (username, email, password,profile_pic_db_path,fullname))
+            cursor.execute('INSERT INTO users (employer, email, password,profile_pic_path,fullname) VALUES (?, ?, ?,?,?)', (employer, email, password,profile_pic_db_path,fullname))
             db.commit()
             user = login_logic(email, password)
             if user:
                 return redirect(url_for('root.home'))
         except Exception as e:
+            print(e)
             return render_template('register.html',reg_form = form, error = str(e))
     return render_template('register.html',reg_form = form)
 

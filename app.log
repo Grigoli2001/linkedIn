@@ -1,110 +1,1005 @@
-INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:2000
-INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0150 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 20:58:58] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0100 seconds
+INFO:root:Request finished in 0.0130 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 20:58:58] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 20:58:58] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0060 seconds
+INFO:root:Request finished in 0.0039 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 20:58:58] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 20:58:58] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
 INFO:werkzeug: * Restarting with watchdog (windowsapi)
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 185-285-804
-INFO:root:Request started: http://127.0.0.1:2000/
-INFO:root:Request finished in 0.0306 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "[32mGET / HTTP/1.1[0m" 302 -
 INFO:root:Request started: http://127.0.0.1:2000/home
-INFO:root:Request finished in 0.1467 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "GET /home HTTP/1.1" 200 -
-INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0450 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:10] "GET /home HTTP/1.1" 200 -
 INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:10] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
 INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
-INFO:root:Request finished in 0.0073 seconds
-INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
-INFO:root:Request started: http://127.0.0.1:2000/static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
-INFO:root:Request finished in 0.3079 seconds
-INFO:root:Request finished in 0.3112 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
-INFO:root:Request finished in 0.3061 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "[36mGET /static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg HTTP/1.1[0m" 304 -
-INFO:root:Request finished in 0.3120 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:43] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
-INFO:root:Request started: http://127.0.0.1:2000/jobs
-INFO:root:Request finished in 0.1173 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:56] "GET /jobs HTTP/1.1" 200 -
-INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.1870 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:10] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.2230 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:10] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.1970 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:10] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_items
+INFO:root:Request finished in 0.0220 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:26] "GET /my_items HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
 INFO:root:Request finished in 0.0020 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:56] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:26] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0100 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:26] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:26] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:26] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_applications
+INFO:root:Request finished in 0.0150 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:28] "GET /my_applications HTTP/1.1" 200 -
 INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
 INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
-INFO:root:Request finished in 0.0020 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:56] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:28] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0090 seconds
+INFO:root:Request finished in 0.0130 seconds
 INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
-INFO:root:Request finished in 0.0032 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:56] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
-INFO:root:Request started: http://127.0.0.1:2000/static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg
-INFO:root:Request finished in 0.0304 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:56] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
-INFO:root:Request finished in 0.0051 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:15:56] "[36mGET /static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg HTTP/1.1[0m" 304 -
-INFO:root:Request started: http://127.0.0.1:2000/home
-INFO:root:Request finished in 0.0070 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:07] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:28] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:28] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:00:28] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/jobs
+INFO:root:Request finished in 0.0590 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:09:27] "GET /jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0080 seconds
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:09:28] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
 INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
-INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:09:28] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:09:28] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:09:28] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_items
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:09:32] "GET /my_items HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0050 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:09:32] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:09:32] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:09:32] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:09:32] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_applications
+INFO:root:Request finished in 0.0130 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:35:17] "GET /my_applications HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0110 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:35:17] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0070 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:35:17] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:35:17] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:35:17] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_items
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:35:19] "GET /my_items HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:35:19] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0050 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:35:19] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0050 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:35:19] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:35:19] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_items
+INFO:root:Request finished in 0.0630 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:38:36] "GET /my_items HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:38:36] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:38:36] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
 INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
 INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
-INFO:root:Request finished in 0.0200 seconds
-INFO:root:Request finished in 0.0130 seconds
-INFO:root:Request finished in 0.0126 seconds
-INFO:root:Request started: http://127.0.0.1:2000/static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:07] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:07] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:07] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
-INFO:root:Request finished in 0.0180 seconds
-INFO:root:Request finished in 0.0130 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:07] "[36mGET /static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg HTTP/1.1[0m" 304 -
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:07] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:38:36] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:38:36] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:38:50] "[32mGET / HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0100 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:38:50] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0019 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:38:50] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:38:50] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:38:50] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:38:50] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
 INFO:root:Request started: http://127.0.0.1:2000/add_tweet
 INFO:root:Submitted a tweet.
-INFO:root:Request finished in 0.0306 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:10] "[32mPOST /add_tweet HTTP/1.1[0m" 302 -
+INFO:root:Request finished in 0.0150 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:28] "[32mPOST /add_tweet HTTP/1.1[0m" 302 -
 INFO:root:Request started: http://127.0.0.1:2000/home
-INFO:root:Request finished in 0.0160 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:10] "GET /home HTTP/1.1" 200 -
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:28] "GET /home HTTP/1.1" 200 -
 INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0030 seconds
 INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
-INFO:root:Request finished in 0.0020 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:11] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
 INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
-INFO:root:Request finished in 0.0160 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:28] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0130 seconds
+INFO:root:Request finished in 0.0070 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:28] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
 INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
-INFO:root:Request finished in 0.0069 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:11] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:11] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
-INFO:root:Request started: http://127.0.0.1:2000/static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg
-INFO:root:Request finished in 0.0112 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:11] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
-INFO:root:Request finished in 0.0089 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:16:11] "[36mGET /static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg HTTP/1.1[0m" 304 -
-INFO:root:Request started: http://127.0.0.1:2000/
-INFO:root:Request finished in 0.0089 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "[32mGET / HTTP/1.1[0m" 302 -
-INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:28] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:28] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/jobs
+INFO:root:Request finished in 0.0370 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:33] "GET /jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0060 seconds
+INFO:root:Request finished in 0.0050 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:33] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:33] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:33] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0120 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:33] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_jobs
+INFO:root:Request finished in 0.0300 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:39] "GET /my_jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0070 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:40] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:40] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:40] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:40] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/application/6553a66d9c80969da5da6447
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:41] "GET /application/6553a66d9c80969da5da6447 HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/my_jobs
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:42] "GET /my_jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0070 seconds
+INFO:root:Request finished in 0.0090 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:42] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:42] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0040 seconds
 INFO:root:Request finished in 0.0110 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:42] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:42] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/application/6553a66d9c80969da5da6447
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:43] "GET /application/6553a66d9c80969da5da6447 HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/apply_job
+INFO:root:Request finished in 0.0150 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:56] "[32mPOST /apply_job HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/jobs
+INFO:root:Request finished in 0.0220 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:40:56] "GET /jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/my_jobs
+INFO:root:Request finished in 0.0140 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:41:01] "GET /my_jobs HTTP/1.1" 200 -
 INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
-INFO:root:Request finished in 0.0030 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0120 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:41:01] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0130 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:41:01] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0110 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:41:01] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0130 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:41:01] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/application/6553a66d9c80969da5da6447
+INFO:root:Request finished in 0.0140 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:41:02] "GET /application/6553a66d9c80969da5da6447 HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/application/6553a66d9c80969da5da6447
+INFO:root:Request finished in 0.0160 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:43:12] "GET /application/6553a66d9c80969da5da6447 HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/application/6553a66d9c80969da5da6447
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:43:12] "GET /application/6553a66d9c80969da5da6447 HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:05] "[32mGET / HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0090 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:05] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
 INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0070 seconds
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:05] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:05] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:05] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:05] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/jobs
+INFO:root:Request finished in 0.0320 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:07] "GET /jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0090 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:07] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:07] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0019 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:07] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
 INFO:root:Request finished in 0.0020 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:07] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_items
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:13] "GET /my_items HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0070 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:13] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0110 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:13] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0040 seconds
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:13] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:13] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_applications
+INFO:root:Request finished in 0.0090 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:15] "GET /my_applications HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:15] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0100 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:16] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:16] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:16] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_items
+INFO:root:Request finished in 0.0110 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:21] "GET /my_items HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:21] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0070 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:21] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:21] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:21] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_items
+INFO:root:Request finished in 0.0140 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:32] "GET /my_items HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:32] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:32] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
 INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
 INFO:root:Request finished in 0.0030 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:32] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
 INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
-INFO:root:Request started: http://127.0.0.1:2000/static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg
-INFO:root:Request finished in 0.0031 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:32] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/jobs
+INFO:root:Request finished in 0.0310 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:37] "GET /jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:37] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0120 seconds
+INFO:root:Request finished in 0.0180 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:37] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:37] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0150 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:37] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/users
 INFO:root:Request finished in 0.0030 seconds
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 20:19:22] "[36mGET /static/uploads/WhatsApp_Image_2023-03-19_at_21.27.02.jpg HTTP/1.1[0m" 304 -
-INFO:werkzeug: * Detected change in 'c:\\Users\\Gega\\Desktop\\linkedIn\\main.py', reloading
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:43] "GET /users HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/logout
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:52] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0000 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:52] "[32mGET /home HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/login/?next=%2Fhome
+INFO:root:Request finished in 0.0140 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:52] "GET /login/?next=%2Fhome HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/register.css
+INFO:root:Request finished in 0.0050 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/Li-Logo.png
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:52] "GET /static/style/navbar.css HTTP/1.1" 200 -
+INFO:root:Request finished in 0.0070 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:52] "GET /static/style/register.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:52:52] "GET /static/assets/Li-Logo.png HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/login/?next=%2Fhome
+INFO:root:Request finished in 0.0208 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:53:02] "[32mPOST /login/?next=%2Fhome HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:53:02] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0060 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:53:02] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:53:02] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0040 seconds
+INFO:root:Request finished in 0.0050 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:53:02] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:53:02] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/users
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:53:11] "GET /users HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0150 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:53:26] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:53:26] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0070 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:53:26] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:53:26] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0120 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:53:26] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0330 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:54:21] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:54:21] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0030 seconds
+INFO:root:Request finished in 0.0030 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:54:21] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:54:21] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:54:21] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/jobs
+INFO:root:Request finished in 0.0510 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:54:27] "GET /jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:54:27] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0110 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:54:27] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0070 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:54:27] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:54:27] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
 INFO:werkzeug: * Restarting with watchdog (windowsapi)
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0330 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:55:09] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:55:10] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.1770 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:55:10] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.1880 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:55:10] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.2000 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:55:10] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:55:16] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:55:16] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0140 seconds
+INFO:root:Request finished in 0.0120 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:55:16] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:55:16] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0100 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:55:16] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\__init__.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\forms.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\register.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\flask_wtf\\__init__.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\flask_wtf\\form.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\flask_wtf\\file.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0300 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:56:03] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:56:03] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.1660 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:56:03] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.1680 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:56:03] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.1670 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:56:03] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/users
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:56:14] "GET /users HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:root:Request started: http://127.0.0.1:2000/users
+INFO:root:Request finished in 0.0050 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:47] "GET /users HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/logout
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:54] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:54] "[32mGET /home HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/login/?next=%2Fhome
+INFO:root:Request finished in 0.0180 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:54] "GET /login/?next=%2Fhome HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/register.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/Li-Logo.png
+INFO:root:Request finished in 0.1710 seconds
+INFO:root:Request finished in 0.1659 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:54] "[36mGET /static/style/navbar.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:54] "[36mGET /static/style/register.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.1940 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:54] "[36mGET /static/assets/Li-Logo.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/register/
+INFO:root:Request finished in 0.0250 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:56] "GET /register/ HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/navbar.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:56] "[36mGET /static/style/navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/register.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/Li-Logo.png
+INFO:root:Request finished in 0.0050 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:56] "[36mGET /static/style/register.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0050 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:56] "[36mGET /static/assets/Li-Logo.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/login/?next=%2Fhome
+INFO:root:Request finished in 0.0184 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:59] "[32mPOST /login/?next=%2Fhome HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0310 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:59] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:59] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:59] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0100 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:59] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:57:59] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/logout
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:43] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0000 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:43] "[32mGET /home HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/login/?next=%2Fhome
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:43] "GET /login/?next=%2Fhome HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/navbar.css
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:43] "[36mGET /static/style/navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/register.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/Li-Logo.png
+INFO:root:Request finished in 0.0050 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:43] "[36mGET /static/style/register.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:43] "[36mGET /static/assets/Li-Logo.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/login/?next=%2Fhome
+INFO:root:Request finished in 0.0100 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:49] "[32mPOST /login/?next=%2Fhome HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0100 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:49] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:49] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:49] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0040 seconds
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:49] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:49] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:56] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:56] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:56] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request finished in 0.0050 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:56] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0140 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:56] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/jobs
+INFO:root:Request finished in 0.0970 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:59] "GET /jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:59] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0110 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:59] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0070 seconds
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:59] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:58:59] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/logout
+INFO:root:Request finished in 0.0050 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:10] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:10] "[32mGET /home HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/login/?next=%2Fhome
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:10] "GET /login/?next=%2Fhome HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/navbar.css
+INFO:root:Request finished in 0.0080 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/register.css
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:10] "[36mGET /static/style/navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/Li-Logo.png
+INFO:root:Request finished in 0.0070 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:10] "[36mGET /static/style/register.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:10] "[36mGET /static/assets/Li-Logo.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/login/?next=%2Fhome
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:14] "[32mPOST /login/?next=%2Fhome HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0048 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:14] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:14] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:14] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request finished in 0.0050 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:14] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:14] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:25] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0070 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:25] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0100 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:25] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0050 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:25] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:25] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0150 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:27] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:27] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:27] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0070 seconds
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:27] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 21:59:27] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\APIs\\login.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pytest_recording\\plugin.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\_pytest\\config\\argparsing.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\_pytest\\mark\\structures.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\vcr\\cassette.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pytest_recording\\__init__.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pytest_recording\\_vcr.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pytest_recording\\validation.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pytest_recording\\utils.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\_pytest\\mark\\__init__.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\vcr\\persisters\\filesystem.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\vcr\\serialize.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0600 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:07] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:07] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.1980 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:07] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.1850 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:07] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.1860 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:07] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/home
+INFO:root:Request finished in 0.0139 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:09] "GET /home HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:09] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:09] "[33mGET /static/style/.css HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:09] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:09] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_jobs
+INFO:root:Request finished in 0.0170 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:14] "GET /my_jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:14] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0040 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:14] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0050 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:14] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0050 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:00:14] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/add_job
+INFO:root:Request started: http://127.0.0.1:2000/my_jobs
+INFO:root:Request finished in 0.0230 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:02:57] "[32mPOST /add_job HTTP/1.1[0m" 302 -
+INFO:root:Request finished in 0.0070 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:02:57] "GET /my_jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0050 seconds
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:02:57] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:02:57] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:02:57] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:02:57] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/application/655507d1a60d0a703c2f2f3b
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\flask\\app.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\flask_login\\utils.py', reloading
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:01] "[35m[1mGET /application/655507d1a60d0a703c2f2f3b HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:root:Request started: http://127.0.0.1:2000/application/655507d1a60d0a703c2f2f3b
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:05] "[35m[1mGET /application/655507d1a60d0a703c2f2f3b HTTP/1.1[0m" 500 -
+INFO:root:Request started: http://127.0.0.1:2000/application/655507d1a60d0a703c2f2f3b
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:05] "[35m[1mGET /application/655507d1a60d0a703c2f2f3b HTTP/1.1[0m" 500 -
+INFO:root:Request started: http://127.0.0.1:2000/application/655507d1a60d0a703c2f2f3b
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:09] "[35m[1mGET /application/655507d1a60d0a703c2f2f3b HTTP/1.1[0m" 500 -
+INFO:root:Request started: http://127.0.0.1:2000/jobs
+INFO:root:Request finished in 0.0720 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:25] "GET /jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.2190 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:26] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.2170 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:26] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.2550 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:26] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.2290 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:26] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/apply_job
+INFO:root:Request finished in 0.0110 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:44] "[32mPOST /apply_job HTTP/1.1[0m" 302 -
+INFO:root:Request started: http://127.0.0.1:2000/jobs
+INFO:root:Request finished in 0.0320 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:44] "GET /jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/my_jobs
+INFO:root:Request finished in 0.0180 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:51] "GET /my_jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:52] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:52] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:52] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:52] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/application/655507d1a60d0a703c2f2f3b
+INFO:root:Request finished in 0.0100 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:03:54] "GET /application/655507d1a60d0a703c2f2f3b HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:root:Request started: http://127.0.0.1:2000/my_jobs
+INFO:root:Request finished in 0.0270 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:25:52] "GET /my_jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.2690 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:25:52] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.2810 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:25:52] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.2800 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:25:52] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.2810 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:25:52] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/application/655507d1a60d0a703c2f2f3b
+INFO:root:Request finished in 0.0070 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:25:54] "GET /application/655507d1a60d0a703c2f2f3b HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/null
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:25:54] "[33mGET /null HTTP/1.1[0m" 404 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:26:17] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0090 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:26:17] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:26:17] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/users
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:26:44] "GET /users HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\website\\root.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 185-285-804
+INFO:root:Request started: http://127.0.0.1:2000/jobs
+INFO:root:Request finished in 0.0810 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:27:00] "GET /jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.1970 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:27:00] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.2120 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:27:00] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.2130 seconds
+INFO:root:Request finished in 0.2190 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:27:00] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:27:00] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/my_jobs
+INFO:root:Request finished in 0.0160 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:27:04] "GET /my_jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:27:04] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:27:04] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0020 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:27:04] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:27:04] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/application/655507d1a60d0a703c2f2f3b
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 22:27:06] "GET /application/655507d1a60d0a703c2f2f3b HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/my_jobs
+INFO:root:Request finished in 0.0160 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:07:18] "GET /my_jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0360 seconds
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:07:18] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0360 seconds
+INFO:root:Request finished in 0.0350 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:07:18] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request finished in 0.0080 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:07:18] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:07:18] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/application/655507d1a60d0a703c2f2f3b
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:07:21] "GET /application/655507d1a60d0a703c2f2f3b HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/application/655507d1a60d0a703c2f2f3b
+INFO:root:Request finished in 0.0060 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:50:18] "GET /application/655507d1a60d0a703c2f2f3b HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/application/655507d1a60d0a703c2f2f3b
+INFO:root:Request finished in 0.0110 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:51:33] "GET /application/655507d1a60d0a703c2f2f3b HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/jobs
+INFO:root:Request finished in 0.0260 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:51:40] "GET /jobs HTTP/1.1" 200 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/job-card.css
+INFO:root:Request finished in 0.0030 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:51:40] "[36mGET /static/style/job-card.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/main-navbar.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:51:40] "[36mGET /static/style/main-navbar.css HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/assets/LI-In-Bug.png
+INFO:root:Request finished in 0.0010 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:51:40] "[36mGET /static/assets/LI-In-Bug.png HTTP/1.1[0m" 304 -
+INFO:root:Request started: http://127.0.0.1:2000/static/style/home.css
+INFO:root:Request finished in 0.0040 seconds
+INFO:werkzeug:127.0.0.1 - - [15/Nov/2023 23:51:40] "[36mGET /static/style/home.css HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\Desktop\\linkedIn\\main.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\datetime.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\Gega\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\bson\\__init__.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)

@@ -1,16 +1,17 @@
-import os
-from flask import Blueprint, render_template,url_for, jsonify,g, request, redirect, flash, current_app
-import sqlite3
-from flask_login import login_required,current_user,logout_user
-from .APIs.forms import LoginForm , PostForm
-from .APIs.mongoDB import client
-from datetime import datetime
 import logging
+import os
+import sqlite3
 import time
-
-from werkzeug.utils import secure_filename
+from datetime import datetime
 
 from bson import ObjectId
+from flask import (Blueprint, current_app, flash, g, jsonify, redirect,
+                   render_template, request, url_for)
+from flask_login import current_user, login_required, logout_user
+from werkzeug.utils import secure_filename
+
+from .APIs.forms import LoginForm, PostForm
+from .APIs.mongoDB import client
 
 # from .login import User
 root = Blueprint('root',__name__)
@@ -41,7 +42,7 @@ def create_user_table(db):
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT NOT NULL,
+            employer TEXT NOT NULL,
             email TEXT NOT NULL UNIQUE,
             password text NOT NULL,
             profile_pic_path text,
@@ -83,13 +84,16 @@ def home():
         user_info = get_user_info_by_id(tweet['user_id'])
         if user_info:
             tweet['author_name'] = user_info[1]  # Access username using integer index
-            tweet['author_profile_pic'] = user_info[4]  # Access profile_pic_path using integer index
+            if user_info[4]:
+                tweet['author_profile_pic'] = user_info[4]  # Access profile_pic_path using integer index
+            else:
+                tweet['author_profile_pic'] = "https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg"
             tweet['author_fullname'] = user_info[5]
         else:
             # Handle the case where the author was not found
             tweet['author_fullname'] = "Unknown"
             tweet['author_name'] = 'Unknown'
-            tweet['author_profile_pic'] = None
+            tweet['author_profile_pic'] = "https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg"
     tweets.reverse()
     return render_template('home.html', tweets = tweets, form = form)
 
@@ -100,10 +104,16 @@ def home():
 def jobs():
     db = client['linkedIn']
     collection = db['jobs']
+    my_applications = db['applications']
     jobs = list(collection.find())
+    applications = my_applications.find_one({'user_id' : current_user.id})
     for job in jobs:
         if current_user.id in job['saved_by']:
             job['saved'] = True
+        for application in applications['jobs_applied']:
+            if str(job['_id']) == application['job_id']:
+                job['applied'] = True
+    jobs.reverse()
     return render_template('jobs.html',jobs = jobs)
 
 
@@ -147,7 +157,7 @@ def my_items():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('root.index'))
+    return redirect(url_for('root.home'))
 
 
 
@@ -218,6 +228,7 @@ def edit_tweet(id):
 def apply_job():
     db = client['linkedIn']
     collection = db['applications']
+    jobs = db['jobs']
     if request.method == 'POST':
         form = request.form
         job_id = form['job_id']
@@ -236,6 +247,7 @@ def apply_job():
         else:
             resume_db_path = None  # Handle the case where no image was uploaded
         user_id = current_user.id
+        cur_job = jobs.find_one({'_id' : ObjectId(job_id)})
         job = {
             'job_id' : job_id,
             'fullname' : fullname,
@@ -243,6 +255,8 @@ def apply_job():
             'resume' : resume_db_path,
             'phone_number' : phone_number,
             'cover_letter' : cover_letter,
+            'applied_at' : datetime.now().isoformat(),
+            'status' : 'pending',
 
         }
         applied = {
@@ -254,4 +268,110 @@ def apply_job():
             collection.update_one({'user_id' : user_id}, {'$push' : {'jobs_applied' : job}})
         else:
             collection.insert_one(applied)
+        # increment application count
+        jobs.update_one({'_id' : ObjectId(job_id)}, {'$inc' : {'application_count' : 1}})
+        jobs.update_one({'_id' : ObjectId(job_id)},{'$push' : {'applied_by' : current_user.id}})
         return redirect(url_for('root.jobs'))
+    
+    return redirect(url_for('root.jobs'))
+
+
+
+# TO DO
+@root.route('/my_applications')
+@login_required
+def my_applications():
+    db = client['linkedIn']
+    collection = db['applications']
+    applications = collection.find_one({'user_id' : current_user.id})
+    jobs = db['jobs']
+    job_list = []
+    try:
+        for application in applications['jobs_applied']:
+            job = jobs.find_one({'_id' : ObjectId(application['job_id'])})
+            job['status'] = application['status']
+            job_list.append(job)
+    except Exception as e:
+        print(e)
+    return render_template('my_applications.html',jobs = job_list)
+
+
+@root.route('/my_jobs')
+@login_required
+def my_jobs():
+    db = client['linkedIn']
+    collection = db['jobs']
+    jobs = list(collection.find({'posted_by' : current_user.id}))
+    return render_template('my_jobs.html',jobs = jobs)
+
+@root.route('/profile')
+@login_required
+def profile():
+    return render_template('profile.html')
+
+
+@root.route('/add_job', methods=['GET','POST'])
+@login_required
+def add_job():
+    db = client['linkedIn']
+    collection = db['jobs']
+    if request.method == 'POST':
+        form = request.form
+        title = form['title']
+        description = form['description']
+        company = form['company']
+        job_type = form['job_type']
+        location = form['location']
+        salary = form['salary']
+        deadline = form['deadline']
+        process = form['process']
+        requirements = form['requirements'].split(',')
+        skills = form['skills'].split(',')
+        category = form['category']
+        contact = form['contact']
+        job = {
+            'job_title' : title,
+            'job_description' : description,
+            'company' : company,
+            'job_type' : job_type,
+            'location' : location,
+            'salary' : salary,
+            'application_deadline' : deadline,
+            'application_process' : process,
+            'job_requirements' : requirements,
+            'desired_skills' : skills,
+            'job_category' : category,
+            'date_posted' : datetime.now().isoformat(),
+            'job_status' : 'Open',
+            'contact_information' : contact,
+            'tags'  : [],
+            'posted_by' : current_user.id,
+            'application_count' : 0,
+            'saved_by' : [],
+            'logo':'https://picsum.photos/200?random=112',
+        }
+        collection.insert_one(job)
+        return redirect(url_for('root.my_jobs'))
+    return redirect(url_for('root.my_jobs'))
+
+
+@root.route('/application/<job_id>')
+@login_required
+def application(job_id):
+    db = client['linkedIn']
+    collection = db['applications']
+    job_col = db['jobs']
+    job = job_col.find_one({'_id' : ObjectId(job_id)})
+    applications = []
+    for user in job['applied_by']:
+        user_info = get_user_info_by_id(user)
+        if user_info[4]:
+            user_profile_pic = user_info[4]
+        else:
+            user_profile_pic = "https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg"
+        application = collection.find_one({'user_id' : user})
+        for job in application['jobs_applied']:
+            if job['job_id'] == job_id:
+                job['user_profile_pic'] = user_profile_pic
+                applications.append(job)  
+    return jsonify(applications)

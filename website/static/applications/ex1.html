@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="confirmation()" id="btn">Click</button>
+    <script>
+        function confirmation(){
+            const newButton = document.createElement("button");
+            const cancel = document.createElement("button");
+            const btn = document.getElementById("btn");
+            newButton.innerHTML = "Confirm";
+            btn.parentNode.replaceChild(newButton, btn);
+            newButton.addEventListener("click", function(){
+                alert("Confirmed");
+                location.reload();
+            })
+            cancel.innerHTML = "Cancel";
+            newButton.parentNode.insertBefore(cancel, newButton.nextSibling);
+            cancel.addEventListener("click", function(){
+                newButton.parentNode.replaceChild(btn, newButton);
+                cancel.parentNode.removeChild(cancel);
+            })
+
+        }
+    </script>
+</body>
+</html>

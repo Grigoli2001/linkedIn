@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='style/job-card.css')}}"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    {%include 'navbar.html'%}
+    <div class="job_form_container">
+      <div class="job_form_wrapper">
+        <form id="addJobForm">
+          <div class="inputs">
+            <div>
+              <label for="title">Title</label>
+              <input required name="title" type="text">
+              <label for="description">Description</label>
+              <textarea required name="description" id="" cols="30" rows="10"></textarea>
+              <label for="company">Company</label>
+              <input required type="text" name="company" id="">
+              <label for="job_type">Type</label>
+              <select name="job_type" id="">
+                <option value="Full Time">Full Time</option>
+                <option value="Part Time">Part Time</option>
+                <option value="Contract">Contract</option>
+              </select>
+              <label for="location">Location</label>
+              <input required type="text" name="location" id="">
+            </div>
+            <div>
+              <label for="salary">Salary</label>
+              <input required type="text" name="salary" id="">
+              <label for="deadline">Deadline</label>
+              <input type="text" name="deadline" id="">
+              <label for="process">Application Process</label>
+              <input type="text" name="process" id="">
+              <label for="requirements">Requirements (use commas to separate)</label>
+              <input required type="text" name="requirements" id="">
+              <label for="skills">Skills(use commas to separate)</label>
+              <input required type="text" name="skills" id="">
+
+              <label for="category">Category</label>
+              <input type="text" name="category" id="">
+              <label for="contact">Contact Information</label>
+              <input required type="text" name="contact" id="">
+            </div>
+          </div>
+          <div class="frm-btns">
+            <div onclick="closeJobForm()">Exit</div>
+            <button type="submit">Create a Job</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      {%include 'leftside.html'%}
+      <div class="main-content">
+        <div class="post-job">
+          <button onclick="openJobForm()">Post a job</button>
+        </div>
+        {% for job in jobs %}
+        <div class="job-card">
+          <div class="card-content-wrapper">
+            <div class="company-logo">
+              <img src="https://picsum.photos/200?random={{ job._id }}" />
+            </div>
+            <div onclick="displayApplication('{{job._id}}')" class="job-card-content">
+              <div class="title-company">
+                <span class="card-title"
+                  >{{job.job_title}} - {{job.job_type}}
+                </span>
+                <span>{{job.company}}</span>
+              </div>
+              <span class="location">{{job.location}}</span>
+              <span class="location">{{job.salary}}</span>
+            </div>
+            <div class="">
+              <div class="">
+                <span>{{job.application_count}} Applicants</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>{{job.date_posted}}</span>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+      <div class="content-rightside-job">
+        <div class="application-container"></div>
+      </div>
+    </div>
+    <script>
+      function removeJob(jobId) {
+        const icon = document.getElementById(jobId);
+        icon.classList.remove('fa-solid');
+        icon.classList.add('fa-regular');
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/delete_item/' + jobId);
+        xhr.send();
+        location.reload();
+      }
+
+      function openJobForm() {
+        const jobFormContainer = document.querySelector('.job_form_container');
+        jobFormContainer.style.display = 'flex';
+      }
+
+      function closeJobForm() {
+        const jobFormContainer = document.querySelector('.job_form_container');
+        jobFormContainer.style.display = 'none';
+      }
+
+      const addJobForm = document.getElementById('addJobForm');
+      addJobForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(addJobForm);
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/add_job');
+        xhr.send(formData);
+        xhr.onload = () =>{
+          if (xhr.status == 200){
+          alert('Job added successfully');
+          location.reload();
+          }
+          else{
+            alert('Something went wrong');
+          }
+        }
+        location.reload();
+      });
+      function displayApplication(jobId) {
+        console.log(jobId)
+        const applicationContainer = document.querySelector(".application-container");
+        const mainContent = document.querySelector(".content-rightside-job");
+      
+        applicationContainer.style.opacity = 0;
+        mainContent.style.flex = 1;
+      
+        // Make a GET request to the server to fetch the application data
+        fetch(`/application/${jobId}`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            console.log(response)
+            return response.json();
+          })
+          .then(applicationData => {
+            // Use the received application data to construct your HTML
+            
+            console.log(applicationData)
+            const applicationHTML = applicationData.map(applicationData =>`
+            <div class="job-card">
+              <div class="card-content-wrapper">
+                <div class="company-logo">
+                  <img src="${applicationData.user_profile_pic}" />
+                </div>
+                <div class="job-card-content">
+                  <div class="title-company">
+                    <span class="card-title"
+                      >${applicationData.fullname}
+                    </span>
+                    <span>${applicationData.email}</span>
+                  </div>
+                </div>
+                <div class="">
+                  <div class="">
+                    <span>${applicationData.status}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <span>${applicationData.applied_at}</span>
+              </div>
+            </div>
+            `).join('');
+      
+            // Set the innerHTML of the application container to display the job application
+            applicationContainer.innerHTML = applicationHTML;
+      
+            setTimeout(() => {
+              console.log("Timeout");
+              applicationContainer.style.opacity = 1;
+              mainContent.style.flex = 1.5;
+            }, 200);
+          })
+          .catch(error => {
+            console.error('Error fetching application data:', error);
+            // Handle error appropriately (e.g., display an error message)
+          });
+      }
+      
+    </script>
+  </body>
+</html>

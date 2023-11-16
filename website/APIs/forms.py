@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField,TextAreaField,FileField
+from wtforms import StringField, PasswordField, SubmitField,TextAreaField,FileField,RadioField
 from wtforms.validators import DataRequired, Email, Length, EqualTo, ValidationError
 from flask_wtf.file import  FileAllowed
 
@@ -8,7 +8,7 @@ class RegistrationForm(FlaskForm):
     profile_pic = FileField('Profile Picture', validators=[
         FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Only image files are allowed.')  # Specifies allowed file types
     ]) 
-    username=StringField("Username", validators=[DataRequired(),Length(min=2,max=20)])
+    employer=RadioField("Employer",choices=[("yes","Yes"),("no","No")])
     fullname=StringField("Fullname", validators=[DataRequired(),Length(min=2,max=20)])
     email=StringField("Email Address", validators=[DataRequired(),Email()])
     password = PasswordField('Password',validators=[DataRequired(),Length(min=6)])

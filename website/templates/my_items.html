@@ -1,72 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="{{url_for('static', filename='style/job-card.css')}}"
     />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     {%include 'navbar.html'%}
     <div class="content-wrapper">
-        <div class="content-leftside">
-            <div class="leftside-content-wrapper">
-              <div class="profile-box">
-                <div class="cover-pic">
-                  <img
-                    src="https://images.unsplash.com/photo-1628427634386-7a6e2d1f55ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80"
-                    alt=""
-                  />
-                </div>
-                <div class="blankspace"></div>
-                <img src="{{current_user.profile_pic}}" alt="" />
+      {%include 'leftside.html'%}
+      <div class="main-content">
+        {% for job in jobs %}
+        <div class="job-card">
+          <div class="card-content-wrapper">
+            <div class="company-logo"
+            onclick="displayApplication(
+              '{{job._id}}',
+              '{{job.job_title}}',
+              '{{job.job_description}}',
+              '{{job.company}}',
+              '{{job.job_type}}',
+              '{{job.location}}',
+              '{{job.salary}}',
+              '{{job.application_deadline}}',
+              '{{job.application_process}}',
+              {{job.job_requirements}},
+              {{job.desired_skills}},
+              '{{job.date_posted}}',
+              '{{job.contact_information}}',
+              '{{job.posted_by}}',
+              '{{job.logo}}',
+              '{{job.application_count}}',
+              '{{job.job_status}}',
+              '{{job.job_category}}',
+              '{{job.applied}}'
+            )"
+            >
+              <img src="https://picsum.photos/200?random={{ job._id }}" />
+            </div>
+            <div class="job-card-content"
+            onclick="displayApplication(
+              '{{job._id}}',
+              '{{job.job_title}}',
+              '{{job.job_description}}',
+              '{{job.company}}',
+              '{{job.job_type}}',
+              '{{job.location}}',
+              '{{job.salary}}',
+              '{{job.application_deadline}}',
+              '{{job.application_process}}',
+              {{job.job_requirements}},
+              {{job.desired_skills}},
+              '{{job.date_posted}}',
+              '{{job.contact_information}}',
+              '{{job.posted_by}}',
+              '{{job.logo}}',
+              '{{job.application_count}}',
+              '{{job.job_status}}',
+              '{{job.job_category}}',
+              '{{job.applied}}'
+            )"
+            >
+              <div class="title-company">
+                <span class="card-title"
+                  >{{job.job_title}} - {{job.job_type}}
+                </span>
+                <span>{{job.company}}</span>
               </div>
-              <div class="description">
-                <div class="fullname">{{current_user.fullname}}</div>
-                <div class="title">{{current_user.description}}</div>
-              </div>
-              <div class="profile-viewers">
-                <span>Profile viewers</span>
-                <span>38</span>
-              </div>
-              <div onclick="location.assign('/my_items')" class="my-items">
-                <i class="fa-solid fa-bookmark"></i>
-                <span>My items</span>
+              <span class="location">{{job.location}}</span>
+              <span class="location">{{job.salary}}</span>
+            </div>
+            <div onclick="removeJob('{{job._id}}')" class="icons">
+              <div class="save">
+                <i id="{{job._id}}" class="fa-solid fa-bookmark"></i>
               </div>
             </div>
           </div>
-          <div class="main-content">
-            {% for job in jobs %}
-            <div class="job-card">
-              <div class="card-content-wrapper">
-                <div class="company-logo">
-                  <img src="https://picsum.photos/200?random={{ job._id }}" />
-                </div>
-                <div class="job-card-content">
-                  <div class="title-company">
-                    <span class="card-title">{{job.job_title}} - {{job.job_type}} </span>
-                    <span>{{job.company}}</span>
-                  </div>
-                  <span class="location">{{job.location}}</span>
-                  <span class="location">{{job.salary}}</span>
-                </div>
-                <div onclick="removeJob('{{job._id}}')" class="icons">
-                  <div class="save">
-                    <i id="{{job._id}}" class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <span>{{job.date_posted}}</span>
-                <span>{{job.application_count}} Applicants</span>
-              </div>
-            </div>
-            {%endfor%}
+          <div class="card-footer">
+            <span>{{job.date_posted}}</span>
+            <span>{{job.application_count}} Applicants</span>
           </div>
-          <div class="content-rightside"></div>
+        </div>
+        {%endfor%}
+      </div>
+      <div class="content-rightside-job">
+        <div class="application-container"></div>
+      </div>
+    </div>
+    <div class="application-box closed">
+      <div class="application-wrapper">
+        
+      </div>
+     
     </div>
     <script>
       function removeJob(jobId) {
@@ -78,6 +107,173 @@
         xhr.send();
         location.reload();
       }
+      function displayApplication(
+        jobId,
+        jobTitle,
+        job_description,
+        company,
+        job_type,
+        location,
+        salary,
+        application_deadline,
+        application_process,
+        requirements,
+        skills,
+        date_posted,
+        contact_information,
+        posted_by,
+        logo,
+        application_count,
+        status,
+        category,
+        applied
+      ) {
+        const applicationContainer = document.querySelector(
+          ".application-container"
+        );
+        const icon = document.getElementById(jobId);
+        const mainContent = document.querySelector(".content-rightside-job");
+        // Iterate through the properties of the requirementsObject
+        const requirementsList = Object.keys(requirements)
+          .map((key) => `<li>${key}: ${requirements[key]}</li>`)
+          .join("");
+        applicationContainer.style.opacity = 0;
+        mainContent.style.flex = 1;
+
+        const skillsList = Object.keys(skills)
+          .map((key) => `${skills[key]}  `)
+          .join("");
+        console.log(typeof applied);
+        const applicationHTML = `
+              <div class="job-application">
+                <div class="job-application-header">
+                  <h2 class="job-title-h">${jobTitle}</h2>
+                  <div class="location-job">
+                    <span>${company};</span>
+                    <span>${location};</span>
+                    <span>Category: ${category};</span>
+                    <span>Posted on: ${date_posted};</span>
+                    <span>${application_count} Applicants</span>
+                  </div>
+                </div>
+              <div class="job-application-info">
+                <div class="job-detail">
+                  <i class="fa-solid fa-suitcase"></i>
+                  <span>${location}</span>
+                  <span>${job_type}</span>
+                </div>
+                <div class="job-detail">
+                  <i class="fa-solid fa-thumbs-up"></i>
+                  <span>Skills: ${skillsList}</span>
+                </div>
+                <div class="job-detail">
+                  <i ${
+                    status == "Open"
+                      ? "class='fa-solid fa-envelope-open' style='color: green'"
+                      : "class='fa-solid fa-envelope' style='color: red'"
+                  }></i>
+                  <span>Status: ${status == "Open" ? "Open" : "Closed"}</span>
+                </div>
+              </div>
+              <div class="job-application-action">
+                ${
+                  applied == 'True'
+                    ? `<button class="apply-btn" disabled>Applied</button>`
+                    : `<button class="apply-btn" onclick="displayApplicationForm('${jobId}')">Apply</button>`}
+                
+
+                <button class="${icon.classList.contains("fa-solid") ? "save-btn btn-saved" : "save-btn"}" id="saveBtn${jobId}" onclick="saveJob('${jobId}')">${icon.classList.contains("fa-solid") ? "Saved" : "Save"}</button>
+              </div>
+              <div class="job-application-content">
+                <h4>About the job</h4>
+                <p>${job_description}</p>
+              </div>
+                <h4>Requirements:</h4>
+                <ul>
+                  ${requirementsList}
+                </ul>
+                <h4>Application Instructions:</h4>
+                <p>${application_process}</p>
+              </div>
+            `;
+        // Set the innerHTML of the application container to display the job application
+        applicationContainer.innerHTML = applicationHTML;
+        setTimeout(() => {
+          console.log("Timeout");
+          applicationContainer.style.opacity = 1;
+          mainContent.style.flex = 1.5;
+        }, 200);
+      }
+      function displayApplicationForm(jobId) {
+        console.log(jobId);
+        const applicationContainer = document.querySelector(
+          ".application-box"
+        );
+        const applicationWrapper = document.querySelector(
+          ".application-wrapper"
+        );
+        
+        const applicationHTML = `<form class="application-form" enctype="multipart/form-data" method="post" >
+          <label for="fullname">Full Name</label>
+          <input name="fullname" type="text" value="{{current_user.fullname}}" required>
+          <label for="email">Email</label>
+          <input name="email" type="text" value="{{current_user.email}}" required>
+          <label for="phone_number">Phone Number</label>
+          <input name="phone_number" type="text">
+          <label for="resume">Resume</label>
+          <input name="resume" type="file" value="" required>
+          <label for="cover_letter">Cover Letter</label>
+          <textarea name="cover_letter" id="" cols="30" rows="10"></textarea>
+          <input type="hidden" name="job_id" value="${jobId}">
+          <div class="btn-div">
+            <button type="submit">Submit</button>
+            <div id= "cancelApplication">Cancel</div>
+          </div>
+        </form>`;
+        // Set the innerHTML of the application container to display the job application
+        applicationWrapper.innerHTML = applicationHTML;
+
+
+        applicationContainer.classList.remove("closed");
+        applicationContainer.style.display = "flex";
+        applicationContainer.style.opacity = 0;
+        setTimeout(() => {
+          applicationContainer.style.opacity = 1;
+        }, 200);
+
+        let cancelApplication = document.getElementById("cancelApplication");
+        cancelApplication.addEventListener("click", () => {
+          applicationContainer.style.opacity = 0;
+          setTimeout(() => {
+            applicationContainer.style.display = "none";
+            applicationContainer.classList.add("closed");
+          }, 200);
+        });
+        const applybtn = document.querySelector(".apply-btn");
+        let applicationForm = document.querySelector(".application-form");
+        applicationForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          let formData = new FormData(applicationForm);
+          let xhr = new XMLHttpRequest();
+          xhr.open("POST", "/apply_job");
+          xhr.send(formData);
+          xhr.onload = () => {
+            if (xhr.status == 200) {
+              console.log(xhr.response);
+              alert("Application submitted successfully");
+              applybtn.innerHTML = "Applied";
+              applybtn.disabled = true;
+              applicationContainer.style.opacity = 0;
+              setTimeout(() => {
+                applicationContainer.style.display = "none";
+                applicationContainer.classList.add("closed");
+              }, 200);
+            }
+          };
+        });
+
+      }
+
     </script>
-</body>
+  </body>
 </html>

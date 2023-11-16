@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template,url_for,session,redirect, request, flash
-from flask_login import  UserMixin, login_user,login_required,logout_user,current_user
+from flask import Blueprint, render_template,url_for,redirect, request, flash
+from flask_login import  UserMixin, login_user,current_user
 from ..root import conn_db
 from .. import login_manager
 from .forms import LoginForm
@@ -9,7 +9,7 @@ login_blueprint = Blueprint('login_blueprint',__name__)
 class User(UserMixin):
     def __init__(self,id):
         self.id = id
-        self.username = None
+        self.employer = None
         self.email = None
         self.password = None    
         self.authenticated = False
@@ -29,9 +29,15 @@ class User(UserMixin):
     def get_id(self):
          return self.id
     def __repr__(self):
-        return '<User %r>' % (self.username)
+        return '<User %r>' % (self.fullname)
     def get_cart(self):
         return self.cart
+    def is_employer(self):        
+        if self.employer == "yes":
+            return True
+        else:
+            return False
+
 
 
 
@@ -44,12 +50,12 @@ def load_user(user_id):
     user = cursor.fetchone()
     if user is not None:  # Check if a user is found
         cur_user = User(id=user_id)
-        cur_user.username = user[1]
+        cur_user.employer = user[1]
         cur_user.email = user[2]
         cur_user.password = user[3]
-        cur_user.profile_pic = user[4]
+        if user[4]:
+            cur_user.profile_pic = user[4]
         cur_user.fullname = user[5]
-        print(cur_user.profile_pic)
         return cur_user
 
     return None  # Return None if no user is found
@@ -86,7 +92,7 @@ def login_logic(auth_email = None,auth_password = None):
                 login_user(Us)
                 return redirect(url_for('root.index'))
             else:
-                flash('Login Failed check your username and password','danger')
+                flash('Login Failed check your email and password','danger')
 
 
     return render_template('login.html', form = form)

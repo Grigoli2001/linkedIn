@@ -21,32 +21,7 @@
     {%include 'navbar.html'%}
 
     <div class="content-wrapper">
-      <div class="content-leftside">
-        <div class="leftside-content-wrapper">
-          <div class="profile-box">
-            <div class="cover-pic">
-              <img
-                src="https://images.unsplash.com/photo-1628427634386-7a6e2d1f55ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80"
-                alt=""
-              />
-            </div>
-            <div class="blankspace"></div>
-            <img src="{{current_user.profile_pic}}" alt="" />
-          </div>
-          <div class="description">
-            <div class="fullname">{{current_user.fullname}}</div>
-            <div class="title">{{current_user.description}}</div>
-          </div>
-          <div class="profile-viewers">
-            <span>Profile viewers</span>
-            <span>38</span>
-          </div>
-          <div onclick="location.assign('/my_items')" class="my-items">
-            <i class="fa-solid fa-bookmark"></i>
-            <span>My items</span>
-          </div>
-        </div>
-      </div>
+      {%include 'leftside.html'%}
       <div class="main-content">
         {% for job in jobs %}
         <div class="job-card">
@@ -71,7 +46,8 @@
               '{{job.logo}}',
               '{{job.application_count}}',
               '{{job.job_status}}',
-              '{{job.job_category}}'
+              '{{job.job_category}}',
+              '{{job.applied}}'
             )"
             >
               <img src="{{job.logo}}" />
@@ -96,7 +72,8 @@
               '{{job.logo}}',
               '{{job.application_count}}',
               '{{job.job_status}}',
-              '{{job.job_category}}'
+              '{{job.job_category}}',
+              '{{job.applied}}'
             )"
             >
               <div class="title-company">
@@ -182,7 +159,8 @@
         logo,
         application_count,
         status,
-        category
+        category,
+        applied
       ) {
         const applicationContainer = document.querySelector(
           ".application-container"
@@ -199,7 +177,7 @@
         const skillsList = Object.keys(skills)
           .map((key) => `${skills[key]}  `)
           .join("");
-        console.log(status);
+        console.log(typeof applied);
         const applicationHTML = `
               <div class="job-application">
                 <div class="job-application-header">
@@ -232,7 +210,12 @@
                 </div>
               </div>
               <div class="job-application-action">
-                <button class="apply-btn" onclick="displayApplicationForm('${jobId}')">Apply</button>
+                ${
+                  applied == 'True'
+                    ? `<button class="apply-btn" disabled>Applied</button>`
+                    : `<button class="apply-btn" onclick="displayApplicationForm('${jobId}')">Apply</button>`}
+                
+
                 <button class="${icon.classList.contains("fa-solid") ? "save-btn btn-saved" : "save-btn"}" id="saveBtn${jobId}" onclick="saveJob('${jobId}')">${icon.classList.contains("fa-solid") ? "Saved" : "Save"}</button>
               </div>
               <div class="job-application-content">
@@ -301,7 +284,7 @@
             applicationContainer.classList.add("closed");
           }, 200);
         });
-
+        const applybtn = document.querySelector(".apply-btn");
         let applicationForm = document.querySelector(".application-form");
         applicationForm.addEventListener("submit", (e) => {
           e.preventDefault();
@@ -313,6 +296,8 @@
             if (xhr.status == 200) {
               console.log(xhr.response);
               alert("Application submitted successfully");
+              applybtn.innerHTML = "Applied";
+              applybtn.disabled = true;
               applicationContainer.style.opacity = 0;
               setTimeout(() => {
                 applicationContainer.style.display = "none";

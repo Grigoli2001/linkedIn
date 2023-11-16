@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='style/job-card.css')}}"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    {%include 'navbar.html'%}
+    <div class="content-wrapper">
+      {%include 'leftside.html'%}
+      <div class="main-content">
+        {% for job in jobs %}
+        <div class="job-card">
+          <div class="card-content-wrapper">
+            <div class="company-logo">
+              <img src="https://picsum.photos/200?random={{ job._id }}" />
+            </div>
+            <div class="job-card-content">
+              <div class="title-company">
+                <span class="card-title"
+                  >{{job.job_title}} - {{job.job_type}}
+                </span>
+                <span>{{job.company}}</span>
+              </div>
+              <span class="location">{{job.location}}</span>
+              <span class="location">{{job.salary}}</span>
+            </div>
+            <div class="icons">
+              <div class="">
+                {{job.status}}
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>{{job.date_posted}}</span>
+            <span>{{job.application_count}} Applicants</span>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+      <div class="content-rightside"></div>
+    </div>
+    <script>
+
+    </script>
+  </body>
+</html>

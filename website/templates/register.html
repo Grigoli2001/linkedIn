@@ -49,8 +49,7 @@
             ><i class="fa-solid fa-camera"></i
           ></label>
         </div>
-        {{reg_form.username.label}} {{reg_form.username(class = "reg-inp",
-        placeholder = 'Username')}} {%for error in reg_form.username.errors %}
+        {{reg_form.employer.label}} {{reg_form.employer(class = "reg-inp",)}} {%for error in reg_form.employer.errors %}
         <span>{{error}}</span>
         {%endfor%} {{reg_form.email.label}} {{reg_form.email(class = "reg-inp",
         placeholder = "Email@gmail.com")}} {%for error in reg_form.email.errors
