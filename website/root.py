@@ -289,6 +289,7 @@ def my_applications():
     try:
         for application in applications['jobs_applied']:
             job = jobs.find_one({'_id' : ObjectId(application['job_id'])})
+            print(job)
             job['status'] = application['status']
             job_list.append(job)
     except Exception as e:

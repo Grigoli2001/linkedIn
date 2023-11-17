@@ -107,10 +107,7 @@
       </div>
     </div>
     <div class="application-box closed">
-      <div class="application-wrapper">
-        
-      </div>
-     
+      <div class="application-wrapper"></div>
     </div>
     <script>
       function saveJob(jobId) {
@@ -211,12 +208,19 @@
               </div>
               <div class="job-application-action">
                 ${
-                  applied == 'True'
+                  applied == "True"
                     ? `<button class="apply-btn" disabled>Applied</button>`
-                    : `<button class="apply-btn" onclick="displayApplicationForm('${jobId}')">Apply</button>`}
+                    : `<button class="apply-btn" onclick="displayApplicationForm('${jobId}')">Apply</button>`
+                }
                 
 
-                <button class="${icon.classList.contains("fa-solid") ? "save-btn btn-saved" : "save-btn"}" id="saveBtn${jobId}" onclick="saveJob('${jobId}')">${icon.classList.contains("fa-solid") ? "Saved" : "Save"}</button>
+                <button class="${
+                  icon.classList.contains("fa-solid")
+                    ? "save-btn btn-saved"
+                    : "save-btn"
+                }" id="saveBtn${jobId}" onclick="saveJob('${jobId}')">${
+          icon.classList.contains("fa-solid") ? "Saved" : "Save"
+        }</button>
               </div>
               <div class="job-application-content">
                 <h4>About the job</h4>
@@ -238,16 +242,14 @@
           mainContent.style.flex = 1.5;
         }, 200);
       }
-      
+
       function displayApplicationForm(jobId) {
         console.log(jobId);
-        const applicationContainer = document.querySelector(
-          ".application-box"
-        );
+        const applicationContainer = document.querySelector(".application-box");
         const applicationWrapper = document.querySelector(
           ".application-wrapper"
         );
-        
+
         const applicationHTML = `<form class="application-form" enctype="multipart/form-data" method="post" >
           <label for="fullname">Full Name</label>
           <input name="fullname" type="text" value="{{current_user.fullname}}" required>
@@ -267,7 +269,6 @@
         </form>`;
         // Set the innerHTML of the application container to display the job application
         applicationWrapper.innerHTML = applicationHTML;
-
 
         applicationContainer.classList.remove("closed");
         applicationContainer.style.display = "flex";
@@ -303,12 +304,11 @@
                 applicationContainer.style.display = "none";
                 applicationContainer.classList.add("closed");
               }, 200);
+              location.reload();
             }
           };
         });
-
       }
-
     </script>
   </body>
 </html>
