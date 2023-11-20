@@ -168,7 +168,6 @@ def addTweet():
     collection = db['tweets']
     form = PostForm()  # Create an instance of the TweetForm
     if request.method == 'POST':     
-        print("submited")   
         user_id = current_user.id
         content = form.content.data
         # Get the current timestamp
@@ -289,7 +288,6 @@ def my_applications():
     try:
         for application in applications['jobs_applied']:
             job = jobs.find_one({'_id' : ObjectId(application['job_id'])})
-            print(job)
             job['status'] = application['status']
             job_list.append(job)
     except Exception as e:
@@ -375,4 +373,27 @@ def application(job_id):
             if job['job_id'] == job_id:
                 job['user_profile_pic'] = user_profile_pic
                 applications.append(job)  
+    
     return jsonify(applications)
+
+@root.route('/application_single/<job_id>/<email>')
+@login_required
+def application_single(job_id, email):
+    db = client['linkedIn']
+    collection = db['applications']
+
+    # Find application where email = email and job_id = job_id
+    query = {'jobs_applied': {'$elemMatch': {'job_id': job_id, 'email': email}}}
+    application = collection.find_one(query)
+
+    # Convert ObjectId to string for JSON serialization
+    if application and '_id' in application:
+        application['_id'] = str(application['_id'])
+
+    # Extract the specific object from the 'jobs_applied' array
+    if application and 'jobs_applied' in application:
+        for job_applied in application['jobs_applied']:
+            if job_applied['job_id'] == job_id and job_applied['email'] == email:
+                return jsonify(job_applied)
+
+    return jsonify({})  # Return an empty object if no match is found

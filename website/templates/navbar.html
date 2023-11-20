@@ -18,6 +18,8 @@
     <title>Home</title>
   </head>
   <body>
+    <div class="loader" id="loader"></div>
+
     <nav>
       <div class="nav-wrapper">
         <div class="nav-left">
@@ -107,6 +109,11 @@
         if (navbarMeMenu.classList.contains("open") && event.target !== menu) {
           navbarMeMenu.classList.remove("open");
         }
+      });
+
+      window.addEventListener('load', function () {
+        // Hide the loader when the page is fully loaded
+        document.getElementById('loader').style.display = 'none';
       });
     </script>
   </body>

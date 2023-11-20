@@ -172,7 +172,9 @@
             const applicationHTML = applicationData
               .map(
                 (applicationData) => `
-            <div class="job-card">
+            <div class="job-card" onclick = 
+            "displayApplicationForm('${applicationData.job_id}', '${applicationData.email}')"
+            >
               <div class="card-content-wrapper">
                 <div class="company-logo">
                   <img src="${applicationData.user_profile_pic}" />
@@ -192,7 +194,7 @@
                 </div>
               </div>
               <div class="card-footer">
-                <span>${applicationData.applied_at.split("T")[0]}</span>
+                <span>${applicationData.applied_at?.split("T")[0]}</span>
               </div>
             </div>
             `
@@ -212,6 +214,65 @@
             console.error("Error fetching application data:", error);
             // Handle error appropriately (e.g., display an error message)
           });
+      }
+      function displayApplicationForm(jobId, email) {
+        console.log(jobId);
+        console.log(email);
+        const applicationContainer = document.querySelector(".application-box");
+        const applicationWrapper = document.querySelector(
+          ".application-wrapper"
+        );
+
+        fetch(`/application_single/${jobId}/${email}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            console.log(response);
+            return response.json();
+          })
+          .then((applicationData) => {
+            // Use the received application data to construct your HTML
+
+            console.log(applicationData.cover_letter);
+            const applicationHTML = `
+            <form class="application-form" method="post" >
+              <div>
+                <p>${applicationData.cover_letter}</p>
+                </div>
+              <div class="btn-div">
+                <button type="submit">ac</button>
+                <div id= "cancelApplication">Cancel</div>
+              </div>
+            </form>`
+              
+
+            // Set the innerHTML of the application container to display the job application
+            applicationWrapper.innerHTML = applicationHTML;
+
+            applicationContainer.classList.remove("closed");
+            applicationContainer.style.display = "flex";
+            applicationContainer.style.opacity = 0;
+            setTimeout(() => {
+              applicationContainer.style.opacity = 1;
+            }, 200);
+
+            let cancelApplication = document.getElementById("cancelApplication");
+            cancelApplication.addEventListener("click", () => {
+              applicationContainer.style.opacity = 0;
+              setTimeout(() => {
+                applicationContainer.style.display = "none";
+                applicationContainer.classList.add("closed");
+              }, 200);
+            });
+            
+          })
+          .catch((error) => {
+            console.error("Error fetching application data:", error);
+            // Handle error appropriately (e.g., display an error message)
+          }
+        )
+        
       }
     </script>
   </body>
